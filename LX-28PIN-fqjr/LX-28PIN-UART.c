@@ -34,12 +34,14 @@
 //end for modbus
 
 
+#define _DEBUG 1
+
 //#pragma config FOSC = HS1         //外部 8MHz
 #pragma config WDTEN  = OFF       //关闭 WDT
 #pragma config PLLCFG = OFF       //关闭 PLL
 #pragma config XINST  = OFF       //关闭 Extended 
 #pragma config SOSCSEL= DIG       //数字 I/O
-
+/*
 #define LED11  LATCbits.LATC4      //LED宏定义
 #define LED22  LATCbits.LATC5
 #define LED2  LATCbits.LATC0
@@ -51,55 +53,9 @@
 #define LED0_OFF() LED11 = 1
 #define LED1_ON() LED22 = 0
 #define LED1_OFF() LED22 = 1
-
+*/
 unsigned char fixedTimeFlag  = 0;
 
-//#define pin_en1485 LATBbits.LATB1
-//#define RX_4851() pin_en1485 = 1
-//#define TX_4851() pin_en1485 = 0
-
-
-//unsigned char RXBuffer[16] = {0};                                            //接收缓冲
-
-//unsigned char rxFlag = 0;
-//unsigned char txLen = 0;
-/*
-//-------------------------------------------------------------------------------
-//	TMR1定时器初始化
-//-------------------------------------------------------------------------------
-void TMR1_Init(void)
-{	   
-	TMR1H = 0xF0;                //8MHz  4mS 
-	TMR1L = 0x98;        
-	T1CONbits.T1CKPS = 1;        //预分频1:2
-	T1CONbits.RD16 = 1;          //16位TIMR
-	T1CONbits.TMR1CS = 0;        //FOSC/4
-	PIE1bits.TMR1IE	= 1;         //TMR1中断
-}
-*/
-/*
-//-------------------------------------------------------------------------------
-//	串口初始化
-//-------------------------------------------------------------------------------
-void UART_Init(void)
-{	
-	TRISBbits.TRISB1 = 0;       //设定RB1 收发使能 输出低为发送 高位接收
-	TRISCbits.TRISC7 = 1;       // 设置串口
-	TRISCbits.TRISC6 = 0;
-	
-	SPBRG = 51;                 // 波特率 9600 N 8 1 
-	RCSTAbits.SPEN = 1;         // 串口使能
-	TXSTAbits.BRGH = 1;         // 高速模式
-	TXSTAbits.SYNC = 0;         // 异步模式
-	TXSTAbits.TXEN = 1;         // 发送允许
-	RCSTAbits.CREN = 1;         // 允许接受
-		
-	PIE1bits.RCIE  = 1;         // 接收中断
-	PIE1bits.TXIE  = 0;         // 发送中断
-
-	RX_4851();
-}
-*/
 //-------------------------------------------------------------------------------
 //	高优先级中断向量
 //-------------------------------------------------------------------------------
@@ -118,6 +74,7 @@ void InterruptVectorHigh(void)
 void Interrupt_High(void)
 {
 	static unsigned char temp;
+	static unsigned int c10ms = 0,c1s = 0;
 	if(PIR1bits.RCIF)            // 接收中断
 	{
 		PIR1bits.RCIF = 0;
@@ -145,12 +102,18 @@ void Interrupt_High(void)
 		dwIntTick++;
         bt1ms = 1;
         c10ms++;
+		c1s ++;
         if(c10ms >= 10)
         {
             c10ms = 0;      //10ms计时器清零
             bt10ms = 1;
-			fixedTimeFlag = 0x35;
+
         }
+		if(c1s >= 1000)
+		{
+			c1s = 0;
+			fixedTimeFlag = 0x35;
+		}
 		
 	}
 	
@@ -165,39 +128,30 @@ void main(void)
 	unsigned char cnt = 0;      //变量
 	unsigned char str[3] = {0};
 	unsigned int iic_data = 0;
-	float tempF = 0;
-	
+	unsigned short tempF = 0;
+	TIM2_PWM_Init();             //TMR2 PWM 输出初始化
 	TIM1_Init();                 //TMR1初始化 	
+	
 	UART_Init();                 //串口初始化
+#ifndef _DEBUG
 	//ADC_Init();
-	//I2C_Master_Init();
-
-	TRISCbits.TRISC4 = 0;       //设定RC4、RC5为输出
-	TRISCbits.TRISC5 = 0;
+	I2C_Master_Init();
+	
+#endif	
 
 	INTCONbits.PEIE = 1;         //外设中断
 	INTCONbits.GIE  = 1;         //系统中断
 	T1CONbits.TMR1ON= 1;         //使能TMR1
 
-//	LED0 = 1;                    //LED0-LED5 亮
-//	LED1 = 1;
-	LED2 = 1;
-	LED3 = 1;
-	LED4 = 1;
-	LED5 = 1;
+
 	Delay10KTCYx(160);           //延时
-//	LED0 = 0;                    //LED0-LED5 灭
-//	LED1 = 0;
-	LED2 = 0;
-	LED3 = 0;
-	LED4 = 0;
-	LED5 = 0;
+
 	Delay10KTCYx(30);            //延时
 
-	//TX_4851();
+#ifndef _DEBUG
+	EE_Write_Byte(00,REG_IIC);
+#endif
 
-
-	//EE_Write_Byte(00,REG_IIC);
 	while(1)
 	{
 
@@ -205,41 +159,28 @@ void main(void)
 		timerProc();
 		checkComm0Modbus();
 		//end modbus
-
-		//iic_data = EE_Read_Byte(00);
-
-		//tempF = ((float)iic_data)/32768.0*2.048;
+		if(fctn16Flag == 0x35)
+		{
+			fctn16Flag = 0;
+			tempF = (registerCtntRcv[0]&0xFF00)>>8;
+			tempF = tempF*10 + (registerCtntRcv[0]&0x00FF);
+			tempF = tempF*512/100;
+			setDutyCycle_CCP2(tempF);
+		}
+#ifndef _DEBUG		
 		if(fixedTimeFlag == 0x35)
 		{
 			fixedTimeFlag = 0;
-	//		iic_data = (unsigned int)GET_ADValue();
-	//		tempF = (iic_data/4096*5);
+			iic_data = EE_Read_Byte(00);
+			tempF = ((float)iic_data)/32768.0*2.048;
+			tempF *= 1000;//扩大1000倍
+			registerCtntSnd[0] =(tempF/1000%10)<<8;
+			registerCtntSnd[0] += (tempF/100%10);
+			registerCtntSnd[1] = (tempF/10%10)<<8;
+			registerCtntSnd[1] += (tempF%10);
 		}
-//			LED0_OFF();
-//			LED1_OFF();
-/*
-		if(tempF<1)
-		{
-			LED0_OFF();
-			LED1_OFF();
-		}
-		else if(tempF < 2)
-		{
-			LED0_ON();
-			LED1_OFF();
-		}
-		else if(tempF < 3)
-		{
-			LED0_OFF();
-			LED1_ON();
-		}
-		else
-		{
-			LED0_ON();
-			LED1_ON();
-		}
-*/		
-	//	txLen = 0;
+#endif
+		
 /*
 		TX_4851();
 		

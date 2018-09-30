@@ -24,6 +24,11 @@ typedef int BOOLEAN,BOOL;
 #define TRUE                        1
 #define FALSE                       0
 
+
+#define MDBS_LEN 10
+extern unsigned short registerCtntSnd[MDBS_LEN];
+extern unsigned short registerCtntRcv[MDBS_LEN];
+extern unsigned char fctn16Flag;
 //
 // Exported functions declare
 //

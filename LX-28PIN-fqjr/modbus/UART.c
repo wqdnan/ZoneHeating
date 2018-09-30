@@ -14,27 +14,6 @@ unsigned char receCount;
 
 void UART_Init()
 {
-/*
-     SPBRG=1;
-
-    TXSTAbits.CSRC=1;
-    TXSTAbits.BRGH=1;       // select low speed Baud Rate (see baud rate calcs below)
-    BAUDCONbits.BRG16=1;
-    TXSTAbits.TX9=0;        // select 8 data bits
-    TXSTAbits.SYNC=0;
-    TXSTAbits.SENDB=0;
-
-    RCSTAbits.SPEN=1; //使能串口 （将RX/DT和TX/CK引脚配置为串口引脚）
-    TXSTAbits.TXEN = 1;
-
-   RCSTAbits.RX9=0;        // select 8 data bits
-//   RCSTAbits.CREN=1;       // receive enabled
-
-    PIR1bits.RCIF=0;        // make sure receive interrupt flag is clear
-    PIE1bits.RCIE=1;        // enable UART Receive interrupt
-    INTCONbits.PEIE = 1;    // Enable peripheral interrupt
-    INTCONbits.GIE = 1;     // enable global interrupt
-*/
 	TRISBbits.TRISB1 = 0;       //设定RB1 收发使能 输出低为发送 高位接收
 	TRISCbits.TRISC7 = 1;       // 设置串口
 	TRISCbits.TRISC6 = 0;

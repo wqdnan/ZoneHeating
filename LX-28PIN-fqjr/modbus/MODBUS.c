@@ -82,6 +82,9 @@ UINT16 testRegister0,	// 测试寄存器
 			testRegister7,
 			testRegister8,
 			testRegister9;
+unsigned short registerCtntSnd[MDBS_LEN] = {0};//定义用于发送给主机modbus通信的数据内容
+unsigned short registerCtntRcv[MDBS_LEN] = {0};//定义用于接收主机modbus通信数据内容
+unsigned char fctn16Flag = 0;
 UINT8   localAddr;
 unsigned char crcH = 0;
 unsigned char crcL = 0;
@@ -291,6 +294,8 @@ void presetMultipleRegisters(void)
 	UINT16 crcData;
 	UINT16 tempData;
 	UINT8 i;
+	UINT16 dataH = 0;
+	UINT16 dataL = 0;
 
 	//addr = (receBuf[2]<<8) + receBuf[3];
 	//tempAddr = addr & 0xfff;
@@ -304,8 +309,11 @@ void presetMultipleRegisters(void)
 	for (i = 0; i < setCount; i++, tempAddr++) {
 		//SBUF = receBuf[i*2+7];
 		//SBUF = receBuf[i*2+8];
-		tempData = (receBuf[i*2+7] << 8) + receBuf[i*2+8];
-
+		dataH = receBuf[i*2+7];
+		dataL = receBuf[i*2+8];
+		tempData = dataH*256 + dataL;
+		//tempData = (receBuf[i*2+7] << 8) + receBuf[i*2+8];
+		fctn16Flag = 0x35;
 		setRegisterVal(tempAddr, tempData);
 	}
 
@@ -438,10 +446,10 @@ UINT16 getRegisterVal(UINT16 addr, UINT16 *tempData)
 			*tempData = testRegister0;
 			break;
 		case 1:
-			*tempData = testRegister1;
+			*tempData = registerCtntSnd[0];//testRegister1;
 			break;
 		case 2:
-			*tempData = testRegister2;
+			*tempData = registerCtntSnd[1];//testRegister2;
 			break;
 		case 3:
 			*tempData = testRegister3;
@@ -492,7 +500,7 @@ UINT16 setRegisterVal(UINT16 addr, UINT16 tempData)
 	UINT16 tempAddr;
 
 	tempAddr = addr & 0xfff;
-
+	registerCtntRcv[tempAddr] = tempData;
 	switch(tempAddr) 	//& 0xff
 	{
 		case 0:
@@ -632,7 +640,9 @@ void checkComm0Modbus(void)
 
 					if (receBuf[0] == localAddr) {
 						crcData = crc16(receBuf, tempData - 2);
-						if (crcData == (receBuf[tempData-2] << 8) + receBuf[tempData-1]) {
+					//	if (crcData == (receBuf[tempData-2] << 8) + receBuf[tempData-1]) 
+						if((crcH==receBuf[tempData-2]) && (crcL==receBuf[tempData-1]))
+						{
 							presetMultipleRegisters();
 						}
 					}
