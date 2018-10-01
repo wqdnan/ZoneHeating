@@ -78,10 +78,13 @@ void TIM2_PWM_Init(void)
 }
 //--------------------------------------------------------
 //修改CCP2 对应为 RC2 引脚的占空比 
-//在预分频=1情况下，Duty=0 代表0%  Duty=1024 代表100%
+//在预分频=1情况下，Duty=0 代表0%  Duty=100 代表100%
 //---------------------------------------------------------
 void setDutyCycle_CCP2(unsigned int Duty)
 {
-	CCPR2L = (unsigned char)(Duty>>2);
-	CCP2CON |= (unsigned char)((Duty&0x0003)<<4);
+	float cycle = 0;
+	cycle = Duty*0.01;
+	cycle = cycle*PWM_CYCLE;
+	CCPR2L = (unsigned char)((unsigned int)cycle>>2);
+	CCP2CON |= (unsigned char)(((unsigned int)cycle&0x0003)<<4);
 }

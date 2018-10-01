@@ -134,9 +134,7 @@ void main(void)
 	
 	UART_Init();                 //串口初始化
 #ifndef _DEBUG
-	//ADC_Init();
-	I2C_Master_Init();
-	
+	I2C_Master_Init();	
 #endif	
 
 	INTCONbits.PEIE = 1;         //外设中断
@@ -159,16 +157,16 @@ void main(void)
 		timerProc();
 		checkComm0Modbus();
 		//end modbus
-		if(fctn16Flag == 0x35)
+		if(fctn16Flag == 0x35)//接收到modbus的写寄存器操作
 		{
 			fctn16Flag = 0;
 			tempF = (registerCtntRcv[0]&0xFF00)>>8;
 			tempF = tempF*10 + (registerCtntRcv[0]&0x00FF);
-			tempF = tempF*512/100;
+			//tempF = tempF*PWM_CYCLE/100;
 			setDutyCycle_CCP2(tempF);
 		}
 #ifndef _DEBUG		
-		if(fixedTimeFlag == 0x35)
+		if(fixedTimeFlag == 0x35)//定时采样中
 		{
 			fixedTimeFlag = 0;
 			iic_data = EE_Read_Byte(00);
