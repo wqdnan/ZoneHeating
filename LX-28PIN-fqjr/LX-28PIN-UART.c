@@ -34,7 +34,7 @@
 //end for modbus
 
 
-#define _DEBUG 1
+//#define _DEBUG 1
 
 //#pragma config FOSC = HS1         //外部 8MHz
 #pragma config WDTEN  = OFF       //关闭 WDT
@@ -170,8 +170,7 @@ void main(void)
 		{
 			fixedTimeFlag = 0;
 			iic_data = EE_Read_Byte(00);
-			tempF = ((float)iic_data)/32768.0*2.048;
-			tempF *= 1000;//扩大1000倍
+			tempF = (iic_data/32768.0*2048);//扩大1000倍
 			registerCtntSnd[0] =(tempF/1000%10)<<8;
 			registerCtntSnd[0] += (tempF/100%10);
 			registerCtntSnd[1] = (tempF/10%10)<<8;

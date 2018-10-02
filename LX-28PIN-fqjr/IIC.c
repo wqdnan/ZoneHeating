@@ -133,11 +133,7 @@ void EE_SEQU_Write(unsigned int addr,unsigned char length,unsigned char *dptr)
 //-------------------------------------------------------------------------------
 unsigned int EE_Read_Byte(unsigned int addr)
 {
-	unsigned int f;
-	unsigned char addrH,addrL;
-	addrH = (unsigned char)((addr >>8)&0x1F);
-	addrL = (unsigned char)(addr);
-	
+	unsigned int f;	
 	IdleI2C();                      // ensure module is idle
   	StartI2C();                     // Start condition
 	I2C_Done();                     // Wait Start condition completed
