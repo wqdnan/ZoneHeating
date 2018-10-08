@@ -22,9 +22,9 @@
 
 #include "p18cxxx.h"              //头文件
 #include "delays.h"
-#include "SEG.h"
-#include "IIC.h"
-#include "ADC.h"
+//#include "SEG.h"
+#include "\hardware\IIC.h"
+#include "\hardware\ADC.h"
 #include "\hardware\EEPROM.h"
 
 //for modbus
@@ -59,6 +59,8 @@
 #define LED1_OFF() LED22 = 1
 */
 unsigned char fixedTimeFlag  = 0;
+
+void Interrupt_High(void);      //中断函数 
 
 //-------------------------------------------------------------------------------
 //	高优先级中断向量
