@@ -1,5 +1,5 @@
 MPLINK 4.48, Linker
-Linker Map File - Created Mon Oct 08 10:59:53 2018
+Linker Map File - Created Mon Oct 08 16:28:00 2018
 
                                  Section Info
                   Section       Type    Address   Location Size(Bytes)
@@ -9,37 +9,37 @@ Linker Map File - Created Mon Oct 08 10:59:53 2018
       InterruptVectorHigh       code   0x000008    program   0x00020e
                    .cinit    romdata   0x000216    program   0x000026
            .code_MODBUS.o       code   0x00023c    program   0x000f88
-              .code_TIM.o       code   0x0011c4    program   0x00070a
-                     PROG       code   0x0018ce    program   0x00054c
-              .code_IIC.o       code   0x001e1a    program   0x0002a8
-              const_table    romdata   0x0020c2    program   0x000200
-              .code_ADC.o       code   0x0022c2    program   0x000184
-             .code_UART.o       code   0x002446    program   0x0000c6
-               _cinit_scn       code   0x00250c    program   0x00009e
-           .code_EEPROM.o       code   0x0025aa    program   0x000058
-             D10KTCYXCODE       code   0x002602    program   0x00002e
-                    .code       code   0x002630    program   0x000020
-             _startup_scn       code   0x002650    program   0x00001c
-         .idata_c018i.o_i    romdata   0x00266c    program   0x000000
-         .romdata_c018i.o    romdata   0x00266c    program   0x000000
-        .romdata___init.o    romdata   0x00266c    program   0x000000
-        .idata___init.o_i    romdata   0x00266c    program   0x000000
-           .romdata_ADC.o    romdata   0x00266c    program   0x000000
-           .romdata_IIC.o    romdata   0x00266c    program   0x000000
-        .romdata_EEPROM.o    romdata   0x00266c    program   0x000000
-          .romdata_UART.o    romdata   0x00266c    program   0x000000
-          .idata_UART.o_i    romdata   0x00266c    program   0x000000
-        .romdata_MODBUS.o    romdata   0x00266c    program   0x000000
- .romdata_LX-28PIN-UART.o    romdata   0x00266c    program   0x000000
-           .romdata_TIM.o    romdata   0x00266c    program   0x000000
-           .idata_TIM.o_i    romdata   0x00266c    program   0x000024
-        .idata_MODBUS.o_i    romdata   0x002690    program   0x00002c
- .idata_LX-28PIN-UART.o_i    romdata   0x0026bc    program   0x000015
-        .idata_EEPROM.o_i    romdata   0x0026d1    program   0x000000
-           .idata_IIC.o_i    romdata   0x0026d1    program   0x000000
-           .idata_ADC.o_i    romdata   0x0026d1    program   0x000000
-            .code_c018i.o       code   0x0026d2    program   0x000000
-    .code_LX-28PIN-UART.o       code   0x0026d2    program   0x000000
+              .code_TIM.o       code   0x0011c4    program   0x000708
+                     PROG       code   0x0018cc    program   0x00054c
+              .code_IIC.o       code   0x001e18    program   0x0002a8
+              const_table    romdata   0x0020c0    program   0x000200
+              .code_ADC.o       code   0x0022c0    program   0x000184
+             .code_UART.o       code   0x002444    program   0x0000c6
+               _cinit_scn       code   0x00250a    program   0x00009e
+           .code_EEPROM.o       code   0x0025a8    program   0x000058
+             D10KTCYXCODE       code   0x002600    program   0x00002e
+                    .code       code   0x00262e    program   0x000020
+             _startup_scn       code   0x00264e    program   0x00001c
+         .idata_c018i.o_i    romdata   0x00266a    program   0x000000
+         .romdata_c018i.o    romdata   0x00266a    program   0x000000
+        .romdata___init.o    romdata   0x00266a    program   0x000000
+        .idata___init.o_i    romdata   0x00266a    program   0x000000
+           .romdata_ADC.o    romdata   0x00266a    program   0x000000
+           .romdata_IIC.o    romdata   0x00266a    program   0x000000
+        .romdata_EEPROM.o    romdata   0x00266a    program   0x000000
+          .romdata_UART.o    romdata   0x00266a    program   0x000000
+          .idata_UART.o_i    romdata   0x00266a    program   0x000000
+        .romdata_MODBUS.o    romdata   0x00266a    program   0x000000
+ .romdata_LX-28PIN-UART.o    romdata   0x00266a    program   0x000000
+           .romdata_TIM.o    romdata   0x00266a    program   0x000000
+           .idata_TIM.o_i    romdata   0x00266a    program   0x000024
+        .idata_MODBUS.o_i    romdata   0x00268e    program   0x00002c
+ .idata_LX-28PIN-UART.o_i    romdata   0x0026ba    program   0x000015
+        .idata_EEPROM.o_i    romdata   0x0026cf    program   0x000000
+           .idata_IIC.o_i    romdata   0x0026cf    program   0x000000
+           .idata_ADC.o_i    romdata   0x0026cf    program   0x000000
+            .code_c018i.o       code   0x0026d0    program   0x000000
+    .code_LX-28PIN-UART.o       code   0x0026d0    program   0x000000
 .config_300000_LX-28PIN-UART.o    romdata   0x300000    program   0x000001
 .config_300001_LX-28PIN-UART.o    romdata   0x300001    program   0x000001
 .config_300003_LX-28PIN-UART.o    romdata   0x300003    program   0x000001
@@ -76,159 +76,159 @@ Linker Map File - Created Mon Oct 08 10:59:53 2018
                               Program Memory Usage 
                                Start         End      
                            ---------   ---------      
-                            0x000000    0x0026d0      
+                            0x000000    0x0026ce      
                             0x300000    0x300001      
                             0x300003    0x300003      
-            9940 out of 66584 program addresses used, program memory utilization is 14%
+            9938 out of 66584 program addresses used, program memory utilization is 14%
 
 
 
                               Symbols - Sorted by Name
                      Name    Address   Location    Storage File                     
                 ---------  ---------  ---------  --------- ---------                
-                 ADC_Init   0x0022c2    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\ADC.c
-                   AckI2C   0x001e48    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-                   D10K_1   0x00260e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-                    D10Kl   0x00261a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-                    D10Kx   0x00260c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-             Delay10KTCYx   0x002602    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-             EE_Read_Byte   0x001f94    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-             EE_SEQU_Read   0x002018    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-            EE_SEQU_Write   0x001ef8    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-            EE_Write_Byte   0x001e8c    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-              EE_readbyte   0x0025aa    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\EEPROM.c
-             EE_writebyte   0x0025ca    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\EEPROM.c
-                 FLO1632S   0x0018d2    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\cast16FP.asm
-                 FLO1632U   0x0018ce    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\cast16FP.asm
-                    FPA32   0x0018fa    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-                    FPD32   0x001a26    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
-                    FPM32   0x001acc    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\mulFP.asm
-                    FPS32   0x0018f8    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-                 FXM1616U   0x001ba6    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxm1616u.asm
-              GET_ADValue   0x0022d4    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\ADC.c
-                 I2C_Done   0x001e54    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-          I2C_Master_Init   0x001e1a    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-                  INT3216   0x001be2    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
-                  IdleI2C   0x001e2a    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+                 ADC_Init   0x0022c0    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\ADC.c
+                   AckI2C   0x001e46    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+                   D10K_1   0x00260c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+                    D10Kl   0x002618    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+                    D10Kx   0x00260a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+             Delay10KTCYx   0x002600    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+             EE_Read_Byte   0x001f92    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+             EE_SEQU_Read   0x002016    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+            EE_SEQU_Write   0x001ef6    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+            EE_Write_Byte   0x001e8a    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+              EE_readbyte   0x0025a8    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\EEPROM.c
+             EE_writebyte   0x0025c8    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\EEPROM.c
+                 FLO1632S   0x0018d0    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\cast16FP.asm
+                 FLO1632U   0x0018cc    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\cast16FP.asm
+                    FPA32   0x0018f8    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+                    FPD32   0x001a24    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
+                    FPM32   0x001aca    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\mulFP.asm
+                    FPS32   0x0018f6    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+                 FXM1616U   0x001ba4    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxm1616u.asm
+              GET_ADValue   0x0022d2    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\ADC.c
+                 I2C_Done   0x001e52    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+          I2C_Master_Init   0x001e18    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+                  INT3216   0x001be0    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
+                  IdleI2C   0x001e28    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
       InterruptVectorHigh   0x000008    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\LX-28PIN-UART.c
            Interrupt_High   0x00000e    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\LX-28PIN-UART.c
               ModbusDelay   0x000ee6    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\MODBUS.c
-                NotAckI2C   0x001e4e    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-              PID_Control   0x0013b2    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\TIM.c
-                  ReadI2C   0x001e5c    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-               RestartI2C   0x001e40    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-                 StartI2C   0x001e3c    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-                  StopI2C   0x001e44    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-                  TAGTB32   0x001c40    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\gtFP.asm
-                  TALTB32   0x001c52    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\ltFP.asm
+                NotAckI2C   0x001e4c    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+              PID_Control   0x0013b0    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\TIM.c
+                  ReadI2C   0x001e5a    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+               RestartI2C   0x001e3e    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+                 StartI2C   0x001e3a    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+                  StopI2C   0x001e42    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+                  TAGTB32   0x001c3e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\gtFP.asm
+                  TALTB32   0x001c50    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\ltFP.asm
                 TIM1_Init   0x0011c4    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\TIM.c
             TIM2_PWM_Init   0x00125c    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\TIM.c
-                UART_Init   0x002446    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\UART.c
-             UartSendByte   0x002462    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\UART.c
-            UartSendBytes   0x00247c    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\UART.c
-                 WriteI2C   0x001e68    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-       _D10KTCYXCODE_0010   0x002612    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-       _D10KTCYXCODE_001C   0x00261e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-              __FpCompare   0x001c64    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
-                 __FpExit   0x001d1a    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-                 __FpPack   0x001d46    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-            __FpReturnNaN   0x001d0e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-         __FpReturnNegInf   0x001d20    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-        __FpReturnNegZero   0x001d38    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-         __FpReturnPosInf   0x001d26    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-        __FpReturnPosZero   0x001d40    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-        __FpReturnSignInf   0x001d1c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-       __FpReturnSignZero   0x001d34    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-              __FpReturnW   0x001d9e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-              __FpUnPackA   0x001dbe    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
-              __FpUnPackB   0x001dee    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
+                UART_Init   0x002444    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\UART.c
+             UartSendByte   0x002460    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\UART.c
+            UartSendBytes   0x00247a    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\UART.c
+                 WriteI2C   0x001e66    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+       _D10KTCYXCODE_0010   0x002610    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+       _D10KTCYXCODE_001C   0x00261c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+              __FpCompare   0x001c62    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
+                 __FpExit   0x001d18    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+                 __FpPack   0x001d44    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+            __FpReturnNaN   0x001d0c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+         __FpReturnNegInf   0x001d1e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+        __FpReturnNegZero   0x001d36    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+         __FpReturnPosInf   0x001d24    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+        __FpReturnPosZero   0x001d3e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+        __FpReturnSignInf   0x001d1a    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+       __FpReturnSignZero   0x001d32    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+              __FpReturnW   0x001d9c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+              __FpUnPackA   0x001dbc    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
+              __FpUnPackB   0x001dec    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
        ___return_lbl00000   0x000004    program     static                          
        ___return_lbl00000   0x00000c    program     static                          
-       ___return_lbl00001   0x0025fa    program     static                          
-       ___return_lbl00001   0x00266a    program     static                          
-       ___return_lbl00002   0x0025a8    program     static                          
-        ___while_lbl00002   0x0025f6    program     static                          
-        ___while_lbl00003   0x0025fa    program     static                          
+       ___return_lbl00001   0x0025f8    program     static                          
+       ___return_lbl00001   0x002668    program     static                          
+       ___return_lbl00002   0x0025a6    program     static                          
+        ___while_lbl00002   0x0025f4    program     static                          
+        ___while_lbl00003   0x0025f8    program     static                          
                __config_0   0x300000    program     static D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\LX-28PIN-UART.c
                __config_1   0x300001    program     static D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\LX-28PIN-UART.c
                __config_2   0x300003    program     static D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\LX-28PIN-UART.c
                    __init   0x000006    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\stdclib\__init.c
-            __zero_memory   0x002630    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f26k80.asm
-                _do_cinit   0x00250c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+            __zero_memory   0x00262e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f26k80.asm
+                _do_cinit   0x00250a    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
                    _entry   0x000000    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                 _startup   0x002650    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                auchCRCHi   0x0020c2    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\MODBUS.c
-                auchCRCLo   0x0021c2    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\MODBUS.c
+                 _startup   0x00264e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                auchCRCHi   0x0020c0    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\MODBUS.c
+                auchCRCLo   0x0021c0    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\MODBUS.c
                 beginSend   0x000338    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\MODBUS.c
          checkComm0Modbus   0x000f5c    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\MODBUS.c
-                compare_l   0x002646    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f26k80.asm
-                copy_loop   0x00257e    program     static                          
-            copy_one_byte   0x002584    program     static                          
+                compare_l   0x002644    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f26k80.asm
+                copy_loop   0x00257c    program     static                          
+            copy_one_byte   0x002582    program     static                          
                     crc16   0x00023c    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\MODBUS.c
-                     done   0x0025a8    program     static                          
-             done_copying   0x002592    program     static                          
+                     done   0x0025a6    program     static                          
+             done_copying   0x002590    program     static                          
           forceSingleCoil   0x0006cc    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\MODBUS.c
                getCoilVal   0x000a30    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\MODBUS.c
            getRegisterVal   0x000c74    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\MODBUS.c
-                 jANotInf   0x001aea    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\mulFP.asm
-                 jANotInf   0x001922    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-                 jANotInf   0x001a44    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
-                 jANotNeg   0x0019b6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-                jANotZero   0x001a58    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
-              jAandWsetup   0x001986    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-                  jAisNeg   0x001ce0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
-                 jAltBexp   0x001974    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-                jBANotInf   0x001918    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-                 jBNotInf   0x001930    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-              jBothFinite   0x001af8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\mulFP.asm
-             jBothNotZero   0x001c82    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
-             jBothNotZero   0x001b04    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\mulFP.asm
-            jDifOrPosSign   0x001944    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-                      jEQ   0x001c9e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
-                    jExch   0x001caa    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
-                    jExit   0x001c3e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
-                   jExpEQ   0x001cf0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
-                   jFinal   0x001cd4    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
-               jFinalSign   0x001a1e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-                jHaveZero   0x001b00    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\mulFP.asm
-                jI2F16Beg   0x0018e2    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\cast16FP.asm
-                    jLoop   0x001c1e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
-                    jLoop   0x001a80    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
-                jLoopExit   0x001c2e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
-                     jMax   0x001bf2    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
-                  jMaxNeg   0x001c00    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
-                  jMaxPos   0x001bf6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
-                      jNE   0x001ca2    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
-                    jNext   0x001aa6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
-                jNoAdjust   0x001aa4    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
-                  jNoExch   0x001cca    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
-             jNotBothZero   0x001948    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-                  jNotInf   0x001c0e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
-                  jPkLoop   0x001d54    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-             jPkRoundDone   0x001d9e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-               jPkRoundIt   0x001d86    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-             jPkShiftDone   0x001d70    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-           jReturnPosInf0   0x001d2a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-                  jRotate   0x001cfc    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
-                   jShift   0x001ce6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
-               jShiftDone   0x0019de    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-               jShiftLoop   0x0019d0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-                jSignDone   0x001a0e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-              jSignedZero   0x001a4e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
-                 jSignsEQ   0x001c86    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
-                  jUnpkA1   0x001dc8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
-                  jUnpkA2   0x001de0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
-                 jUnpkANZ   0x001dd6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
-                  jUnpkB1   0x001df8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
-                  jUnpkB2   0x001e10    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
-                 jUnpkBNZ   0x001e06    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
-                 jUnpkNaN   0x001dea    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
-                 jWNotNeg   0x0019ca    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-                    jZero   0x001c08    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
-               jZero1and2   0x001d2e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-                     loop   0x002660    program     static                          
-                   loop_h   0x00263e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f26k80.asm
-                   loop_l   0x002648    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f26k80.asm
+                 jANotInf   0x001ae8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\mulFP.asm
+                 jANotInf   0x001920    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+                 jANotInf   0x001a42    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
+                 jANotNeg   0x0019b4    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+                jANotZero   0x001a56    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
+              jAandWsetup   0x001984    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+                  jAisNeg   0x001cde    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
+                 jAltBexp   0x001972    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+                jBANotInf   0x001916    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+                 jBNotInf   0x00192e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+              jBothFinite   0x001af6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\mulFP.asm
+             jBothNotZero   0x001c80    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
+             jBothNotZero   0x001b02    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\mulFP.asm
+            jDifOrPosSign   0x001942    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+                      jEQ   0x001c9c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
+                    jExch   0x001ca8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
+                    jExit   0x001c3c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
+                   jExpEQ   0x001cee    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
+                   jFinal   0x001cd2    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
+               jFinalSign   0x001a1c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+                jHaveZero   0x001afe    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\mulFP.asm
+                jI2F16Beg   0x0018e0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\cast16FP.asm
+                    jLoop   0x001c1c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
+                    jLoop   0x001a7e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
+                jLoopExit   0x001c2c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
+                     jMax   0x001bf0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
+                  jMaxNeg   0x001bfe    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
+                  jMaxPos   0x001bf4    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
+                      jNE   0x001ca0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
+                    jNext   0x001aa4    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
+                jNoAdjust   0x001aa2    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
+                  jNoExch   0x001cc8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
+             jNotBothZero   0x001946    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+                  jNotInf   0x001c0c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
+                  jPkLoop   0x001d52    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+             jPkRoundDone   0x001d9c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+               jPkRoundIt   0x001d84    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+             jPkShiftDone   0x001d6e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+           jReturnPosInf0   0x001d28    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+                  jRotate   0x001cfa    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
+                   jShift   0x001ce4    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
+               jShiftDone   0x0019dc    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+               jShiftLoop   0x0019ce    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+                jSignDone   0x001a0c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+              jSignedZero   0x001a4c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
+                 jSignsEQ   0x001c84    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
+                  jUnpkA1   0x001dc6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
+                  jUnpkA2   0x001dde    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
+                 jUnpkANZ   0x001dd4    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
+                  jUnpkB1   0x001df6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
+                  jUnpkB2   0x001e0e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
+                 jUnpkBNZ   0x001e04    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
+                 jUnpkNaN   0x001de8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
+                 jWNotNeg   0x0019c8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+                    jZero   0x001c06    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
+               jZero1and2   0x001d2c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+                     loop   0x00265e    program     static                          
+                   loop_h   0x00263c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f26k80.asm
+                   loop_l   0x002646    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f26k80.asm
                      main   0x0000be    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\LX-28PIN-UART.c
   presetMultipleRegisters   0x000882    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\MODBUS.c
      presetSingleRegister   0x000786    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\MODBUS.c
@@ -237,9 +237,9 @@ Linker Map File - Created Mon Oct 08 10:59:53 2018
                setCoilVal   0x000b52    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\MODBUS.c
         setDutyCycle_CCP2   0x001276    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\TIM.c
            setRegisterVal   0x000d06    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\MODBUS.c
-                     test   0x002526    program     static                          
+                     test   0x002524    program     static                          
                 timerProc   0x0011e2    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\TIM.c
-               zero_block   0x00263e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f26k80.asm
+               zero_block   0x00263c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f26k80.asm
                         A   0x000088       data     static D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\TIM.c
                    ADCON0   0x000fc2       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f26k80.asm
                ADCON0bits   0x000fc2       data     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f26k80.asm
@@ -1183,133 +1183,133 @@ Linker Map File - Created Mon Oct 08 10:59:53 2018
                 timerProc   0x0011e2    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\TIM.c
             TIM2_PWM_Init   0x00125c    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\TIM.c
         setDutyCycle_CCP2   0x001276    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\TIM.c
-              PID_Control   0x0013b2    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\TIM.c
-                 FLO1632U   0x0018ce    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\cast16FP.asm
-                 FLO1632S   0x0018d2    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\cast16FP.asm
-                jI2F16Beg   0x0018e2    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\cast16FP.asm
-                    FPS32   0x0018f8    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-                    FPA32   0x0018fa    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-                jBANotInf   0x001918    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-                 jANotInf   0x001922    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-                 jBNotInf   0x001930    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-            jDifOrPosSign   0x001944    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-             jNotBothZero   0x001948    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-                 jAltBexp   0x001974    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-              jAandWsetup   0x001986    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-                 jANotNeg   0x0019b6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-                 jWNotNeg   0x0019ca    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-               jShiftLoop   0x0019d0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-               jShiftDone   0x0019de    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-                jSignDone   0x001a0e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-               jFinalSign   0x001a1e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
-                    FPD32   0x001a26    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
-                 jANotInf   0x001a44    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
-              jSignedZero   0x001a4e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
-                jANotZero   0x001a58    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
-                    jLoop   0x001a80    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
-                jNoAdjust   0x001aa4    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
-                    jNext   0x001aa6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
-                    FPM32   0x001acc    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\mulFP.asm
-                 jANotInf   0x001aea    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\mulFP.asm
-              jBothFinite   0x001af8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\mulFP.asm
-                jHaveZero   0x001b00    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\mulFP.asm
-             jBothNotZero   0x001b04    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\mulFP.asm
-                 FXM1616U   0x001ba6    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxm1616u.asm
-                  INT3216   0x001be2    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
-                     jMax   0x001bf2    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
-                  jMaxPos   0x001bf6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
-                  jMaxNeg   0x001c00    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
-                    jZero   0x001c08    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
-                  jNotInf   0x001c0e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
-                    jLoop   0x001c1e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
-                jLoopExit   0x001c2e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
-                    jExit   0x001c3e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
-                  TAGTB32   0x001c40    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\gtFP.asm
-                  TALTB32   0x001c52    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\ltFP.asm
-              __FpCompare   0x001c64    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
-             jBothNotZero   0x001c82    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
-                 jSignsEQ   0x001c86    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
-                      jEQ   0x001c9e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
-                      jNE   0x001ca2    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
-                    jExch   0x001caa    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
-                  jNoExch   0x001cca    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
-                   jFinal   0x001cd4    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
-                  jAisNeg   0x001ce0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
-                   jShift   0x001ce6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
-                   jExpEQ   0x001cf0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
-                  jRotate   0x001cfc    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
-            __FpReturnNaN   0x001d0e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-                 __FpExit   0x001d1a    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-        __FpReturnSignInf   0x001d1c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-         __FpReturnNegInf   0x001d20    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-         __FpReturnPosInf   0x001d26    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-           jReturnPosInf0   0x001d2a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-               jZero1and2   0x001d2e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-       __FpReturnSignZero   0x001d34    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-        __FpReturnNegZero   0x001d38    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-        __FpReturnPosZero   0x001d40    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-                 __FpPack   0x001d46    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-                  jPkLoop   0x001d54    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-             jPkShiftDone   0x001d70    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-               jPkRoundIt   0x001d86    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-              __FpReturnW   0x001d9e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-             jPkRoundDone   0x001d9e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
-              __FpUnPackA   0x001dbe    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
-                  jUnpkA1   0x001dc8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
-                 jUnpkANZ   0x001dd6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
-                  jUnpkA2   0x001de0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
-                 jUnpkNaN   0x001dea    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
-              __FpUnPackB   0x001dee    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
-                  jUnpkB1   0x001df8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
-                 jUnpkBNZ   0x001e06    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
-                  jUnpkB2   0x001e10    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
-          I2C_Master_Init   0x001e1a    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-                  IdleI2C   0x001e2a    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-                 StartI2C   0x001e3c    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-               RestartI2C   0x001e40    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-                  StopI2C   0x001e44    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-                   AckI2C   0x001e48    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-                NotAckI2C   0x001e4e    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-                 I2C_Done   0x001e54    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-                  ReadI2C   0x001e5c    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-                 WriteI2C   0x001e68    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-            EE_Write_Byte   0x001e8c    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-            EE_SEQU_Write   0x001ef8    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-             EE_Read_Byte   0x001f94    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-             EE_SEQU_Read   0x002018    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
-                auchCRCHi   0x0020c2    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\MODBUS.c
-                auchCRCLo   0x0021c2    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\MODBUS.c
-                 ADC_Init   0x0022c2    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\ADC.c
-              GET_ADValue   0x0022d4    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\ADC.c
-                UART_Init   0x002446    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\UART.c
-             UartSendByte   0x002462    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\UART.c
-            UartSendBytes   0x00247c    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\UART.c
-                _do_cinit   0x00250c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                     test   0x002526    program     static                          
-                copy_loop   0x00257e    program     static                          
-            copy_one_byte   0x002584    program     static                          
-             done_copying   0x002592    program     static                          
-                     done   0x0025a8    program     static                          
-       ___return_lbl00002   0x0025a8    program     static                          
-              EE_readbyte   0x0025aa    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\EEPROM.c
-             EE_writebyte   0x0025ca    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\EEPROM.c
-        ___while_lbl00002   0x0025f6    program     static                          
-       ___return_lbl00001   0x0025fa    program     static                          
-        ___while_lbl00003   0x0025fa    program     static                          
-             Delay10KTCYx   0x002602    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-                    D10Kx   0x00260c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-                   D10K_1   0x00260e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-       _D10KTCYXCODE_0010   0x002612    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-                    D10Kl   0x00261a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-       _D10KTCYXCODE_001C   0x00261e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
-            __zero_memory   0x002630    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f26k80.asm
-               zero_block   0x00263e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f26k80.asm
-                   loop_h   0x00263e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f26k80.asm
-                compare_l   0x002646    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f26k80.asm
-                   loop_l   0x002648    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f26k80.asm
-                 _startup   0x002650    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
-                     loop   0x002660    program     static                          
-       ___return_lbl00001   0x00266a    program     static                          
+              PID_Control   0x0013b0    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\TIM.c
+                 FLO1632U   0x0018cc    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\cast16FP.asm
+                 FLO1632S   0x0018d0    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\cast16FP.asm
+                jI2F16Beg   0x0018e0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\cast16FP.asm
+                    FPS32   0x0018f6    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+                    FPA32   0x0018f8    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+                jBANotInf   0x001916    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+                 jANotInf   0x001920    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+                 jBNotInf   0x00192e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+            jDifOrPosSign   0x001942    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+             jNotBothZero   0x001946    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+                 jAltBexp   0x001972    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+              jAandWsetup   0x001984    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+                 jANotNeg   0x0019b4    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+                 jWNotNeg   0x0019c8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+               jShiftLoop   0x0019ce    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+               jShiftDone   0x0019dc    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+                jSignDone   0x001a0c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+               jFinalSign   0x001a1c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\addFP.asm
+                    FPD32   0x001a24    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
+                 jANotInf   0x001a42    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
+              jSignedZero   0x001a4c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
+                jANotZero   0x001a56    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
+                    jLoop   0x001a7e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
+                jNoAdjust   0x001aa2    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
+                    jNext   0x001aa4    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\divFP.asm
+                    FPM32   0x001aca    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\mulFP.asm
+                 jANotInf   0x001ae8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\mulFP.asm
+              jBothFinite   0x001af6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\mulFP.asm
+                jHaveZero   0x001afe    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\mulFP.asm
+             jBothNotZero   0x001b02    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\mulFP.asm
+                 FXM1616U   0x001ba4    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\fxm1616u.asm
+                  INT3216   0x001be0    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
+                     jMax   0x001bf0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
+                  jMaxPos   0x001bf4    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
+                  jMaxNeg   0x001bfe    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
+                    jZero   0x001c06    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
+                  jNotInf   0x001c0c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
+                    jLoop   0x001c1c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
+                jLoopExit   0x001c2c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
+                    jExit   0x001c3c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\castFP16.asm
+                  TAGTB32   0x001c3e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\gtFP.asm
+                  TALTB32   0x001c50    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\ltFP.asm
+              __FpCompare   0x001c62    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
+             jBothNotZero   0x001c80    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
+                 jSignsEQ   0x001c84    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
+                      jEQ   0x001c9c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
+                      jNE   0x001ca0    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
+                    jExch   0x001ca8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
+                  jNoExch   0x001cc8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
+                   jFinal   0x001cd2    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
+                  jAisNeg   0x001cde    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
+                   jShift   0x001ce4    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
+                   jExpEQ   0x001cee    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
+                  jRotate   0x001cfa    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\compFP.asm
+            __FpReturnNaN   0x001d0c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+                 __FpExit   0x001d18    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+        __FpReturnSignInf   0x001d1a    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+         __FpReturnNegInf   0x001d1e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+         __FpReturnPosInf   0x001d24    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+           jReturnPosInf0   0x001d28    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+               jZero1and2   0x001d2c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+       __FpReturnSignZero   0x001d32    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+        __FpReturnNegZero   0x001d36    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+        __FpReturnPosZero   0x001d3e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+                 __FpPack   0x001d44    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+                  jPkLoop   0x001d52    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+             jPkShiftDone   0x001d6e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+               jPkRoundIt   0x001d84    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+              __FpReturnW   0x001d9c    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+             jPkRoundDone   0x001d9c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\packFP.asm
+              __FpUnPackA   0x001dbc    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
+                  jUnpkA1   0x001dc6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
+                 jUnpkANZ   0x001dd4    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
+                  jUnpkA2   0x001dde    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
+                 jUnpkNaN   0x001de8    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
+              __FpUnPackB   0x001dec    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
+                  jUnpkB1   0x001df6    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
+                 jUnpkBNZ   0x001e04    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
+                  jUnpkB2   0x001e0e    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\math\UnpackFP.asm
+          I2C_Master_Init   0x001e18    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+                  IdleI2C   0x001e28    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+                 StartI2C   0x001e3a    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+               RestartI2C   0x001e3e    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+                  StopI2C   0x001e42    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+                   AckI2C   0x001e46    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+                NotAckI2C   0x001e4c    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+                 I2C_Done   0x001e52    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+                  ReadI2C   0x001e5a    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+                 WriteI2C   0x001e66    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+            EE_Write_Byte   0x001e8a    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+            EE_SEQU_Write   0x001ef6    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+             EE_Read_Byte   0x001f92    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+             EE_SEQU_Read   0x002016    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\IIC.c
+                auchCRCHi   0x0020c0    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\MODBUS.c
+                auchCRCLo   0x0021c0    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\MODBUS.c
+                 ADC_Init   0x0022c0    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\ADC.c
+              GET_ADValue   0x0022d2    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\ADC.c
+                UART_Init   0x002444    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\UART.c
+             UartSendByte   0x002460    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\UART.c
+            UartSendBytes   0x00247a    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\modbus\UART.c
+                _do_cinit   0x00250a    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                     test   0x002524    program     static                          
+                copy_loop   0x00257c    program     static                          
+            copy_one_byte   0x002582    program     static                          
+             done_copying   0x002590    program     static                          
+                     done   0x0025a6    program     static                          
+       ___return_lbl00002   0x0025a6    program     static                          
+              EE_readbyte   0x0025a8    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\EEPROM.c
+             EE_writebyte   0x0025c8    program     extern D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\hardware\EEPROM.c
+        ___while_lbl00002   0x0025f4    program     static                          
+       ___return_lbl00001   0x0025f8    program     static                          
+        ___while_lbl00003   0x0025f8    program     static                          
+             Delay10KTCYx   0x002600    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+                    D10Kx   0x00260a    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+                   D10K_1   0x00260c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+       _D10KTCYXCODE_0010   0x002610    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+                    D10Kl   0x002618    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+       _D10KTCYXCODE_001C   0x00261c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\delays\d10ktcyx.asm
+            __zero_memory   0x00262e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f26k80.asm
+               zero_block   0x00263c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f26k80.asm
+                   loop_h   0x00263c    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f26k80.asm
+                compare_l   0x002644    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f26k80.asm
+                   loop_l   0x002646    program     static E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\proc\p18f26k80.asm
+                 _startup   0x00264e    program     extern E:\c18v3.46\pic18-lt\cxx-framework\src\traditional\startup\c018i.c
+                     loop   0x00265e    program     static                          
+       ___return_lbl00001   0x002668    program     static                          
                __config_0   0x300000    program     static D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\LX-28PIN-UART.c
                __config_1   0x300001    program     static D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\LX-28PIN-UART.c
                __config_2   0x300003    program     static D:\PIC-CODE\ZoneHeating\LX-28PIN-fqjr\LX-28PIN-UART.c

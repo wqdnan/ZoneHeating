@@ -7,7 +7,7 @@ unsigned int bt1ms,b10ms,bt10ms,b100ms,bt100ms;
 //定时一个1ms 的中断函数，用于modbus检测接收间隔
 void TIM1_Init()
 {
-	TMR1H = TIM1H_CNT;                //8MHz  定一个1ms的定时中断
+	TMR1H = TIM1H_CNT;                //8MHz  定一个10ms的定时中断
 	TMR1L = TIM1L_CNT;        
 	T1CONbits.T1CKPS = 1;        //预分频1:2
 	T1CONbits.RD16 = 1;          //16位TIMR

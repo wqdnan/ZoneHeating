@@ -45,19 +45,7 @@
 #pragma config PLLCFG = OFF       //关闭 PLL
 #pragma config XINST  = OFF       //关闭 Extended 
 #pragma config SOSCSEL= DIG       //数字 I/O
-/*
-#define LED11  LATCbits.LATC4      //LED宏定义
-#define LED22  LATCbits.LATC5
-#define LED2  LATCbits.LATC0
-#define LED3  LATAbits.LATA5
-#define LED4  LATAbits.LATA3
-#define LED5  LATAbits.LATA2
 
-#define LED0_ON() LED11 = 0
-#define LED0_OFF() LED11 = 1
-#define LED1_ON() LED22 = 0
-#define LED1_OFF() LED22 = 1
-*/
 unsigned char fixedTimeFlag  = 0;
 
 void Interrupt_High(void);      //中断函数 
@@ -199,52 +187,6 @@ void main(void)
 		}
 #endif
 		
-/*
-		TX_4851();
-		
-		while(TXSTA1bits.TRMT==0);
-		TXREG = (unsigned int)(tempF/10)%10+'0';
-		while(TXSTA1bits.TRMT==0);
-		TXREG = (unsigned int)(tempF)%10+'0';
-		while(TXSTA1bits.TRMT==0);
-		TXREG = '.';
-		while(TXSTA1bits.TRMT==0);
-		TXREG = (unsigned int)(tempF*10)%10+'0';
-		while(TXSTA1bits.TRMT==0);
-		TXREG = (unsigned int)(tempF*100)%10+'0';
-		while(TXSTA1bits.TRMT==0);
-		TXREG = (unsigned int)(tempF*1000)%10+'0';
-		while(TXSTA1bits.TRMT==0);
-		TXREG = (unsigned int)(tempF*10000)%10+'0';
-		while(TXSTA1bits.TRMT==0);
-		TXREG = 'V';
-		while(TXSTA1bits.TRMT==0);
-		TXREG = 0x0a;
-		while(TXSTA1bits.TRMT==0);
-		RX_4851();
-*/
-//-----------------------------------------------------
-/*
-		if(rxFlag == 0x35)
-		{
-			rxFlag = 0;
-			txLen = 0;
-			TX_4851();
-
-			while(txLen < 10)
-			{
-				if(TXSTA1bits.TRMT)
-				{
-					TXREG = RXBuffer[txLen];  // 将收到的数据发出
-					txLen ++;
-				}
-			}
-			RX_4851();	
-		}
-*/
-//----------------------------------------------------------
-		//Delay10KTCYx(500);
-
 	}
 }
 

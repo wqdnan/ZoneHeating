@@ -74,14 +74,6 @@ void EE_Write_Byte( unsigned int addr,unsigned char data )
 	while(SSPCON2bits.ACKSTAT);     // wait Acknowledge from EEPROM
 	I2C_Done();                     // Clear SSPIF flag
 
-//	WriteI2C(addrH);                // Write Address to EEPROM
-//	while(SSPCON2bits.ACKSTAT);     // wait Acknowledge from EEPROM
-//	I2C_Done();
-	
-//	WriteI2C(addrL);                // Write Address to EEPROM
-//	while(SSPCON2bits.ACKSTAT);     // wait Acknowledge from EEPROM
-//	I2C_Done();
-
 	WriteI2C(data);                 // Write Data to EEPROM
 	while(SSPCON2bits.ACKSTAT);     // wait Acknowledge from EEPROM
 	I2C_Done();
@@ -102,10 +94,6 @@ void EE_SEQU_Write(unsigned int addr,unsigned char length,unsigned char *dptr)
 	IdleI2C();             	        // ensure module is idle
   	StartI2C();                     // Start condition
 	I2C_Done();                     // Wait Start condition completed
-	
-//	WriteI2C(CMD0);                 // Write Control+Write to EEPROM
-//	while(SSPCON2bits.ACKSTAT);     // wait Acknowledge from EEPROM
-//	I2C_Done();                     // Clear SSPIF flag
 
 	WriteI2C(addrH);                // Write Address to EEPROM
 	while(SSPCON2bits.ACKSTAT);     // wait Acknowledge from EEPROM
@@ -142,21 +130,6 @@ unsigned int EE_Read_Byte(unsigned int addr)
 	while(SSPCON2bits.ACKSTAT);     // test for ACK condition, if received
 	I2C_Done();                     // Clear SSPIF flag
 
-//	WriteI2C(addrH);                // Write Address to EEPROM
-//	while(SSPCON2bits.ACKSTAT);     // wait Acknowledge from EEPROM
-//	I2C_Done();
-	
-//	WriteI2C(addrL);                // Write Address to EEPROM
-//	while(SSPCON2bits.ACKSTAT);     // wait Acknowledge from EEPROM
-//	I2C_Done();
-
-//  RestartI2C();                   // initiate Restart condition
-//	I2C_Done();
-
-//	WriteI2C(CMD1);                 // Write Control to EEPROM              
-//	while(SSPCON2bits.ACKSTAT);     // test for ACK condition, if received
-//	I2C_Done();                     // Clear SSPIF flag
-
 	f=ReadI2C();                    // Enable I2C Receiver & wait BF=1 until received data
 	I2C_Done();                     // Clear SSPIF flag
 
@@ -185,10 +158,6 @@ void EE_SEQU_Read(unsigned int addr,unsigned char length,unsigned char *dptr)
   	StartI2C();                     // Start condition
 	I2C_Done();                     // Wait Start condition completed
 
-//	WriteI2C(CMD0);                 // Write Control to EEPROM    
-//	while(SSPCON2bits.ACKSTAT);     // test for ACK condition, if received
-//	I2C_Done();                     // Clear SSPIF flag
-
 	WriteI2C(addrH);                // Write Address to EEPROM
 	while(SSPCON2bits.ACKSTAT);     // wait Acknowledge from EEPROM
 	I2C_Done();
@@ -199,10 +168,6 @@ void EE_SEQU_Read(unsigned int addr,unsigned char length,unsigned char *dptr)
 
    	RestartI2C();                   // initiate Restart condition
 	I2C_Done();
-
-//	WriteI2C(CMD1);                 // Write Control to EEPROM              
-//	while(SSPCON2bits.ACKSTAT);     // Test for ACK condition, if received
-//	I2C_Done();                     // Clear SSPIF flag
 
 	while (length!=0)
 	{

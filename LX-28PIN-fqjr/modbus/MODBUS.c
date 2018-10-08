@@ -6,8 +6,8 @@
 在AT89S52单片机上测试通过，可以移植到其他51系列单片机
 *******************************/
 #include "type.h"
-
-unsigned char slaveNum = 0;//定义的从机的ID
+#define localAdd  0x01
+unsigned char slaveNum = localAdd;//定义的从机的ID
 
 //字地址 0 - 255 (只取低8位)
 //位地址 0 - 255 (只取低8位)
@@ -91,7 +91,7 @@ UINT8   localAddr;
 unsigned char crcH = 0;
 unsigned char crcL = 0;
 
-#define localAdd  0x01//~((PORTA & 0b00000001)<<5 | (PORTA & 0b00000010)<<3 | (PORTA & 0b00100000)>>2 | (PORTA & 0b00010000)>>2 | (PORTC & 0b00100000)>>4 | (PORTC & 0b00010000)>>4)&0x3f
+//~((PORTA & 0b00000001)<<5 | (PORTA & 0b00000010)<<3 | (PORTA & 0b00100000)>>2 | (PORTA & 0b00010000)>>2 | (PORTC & 0b00100000)>>4 | (PORTC & 0b00010000)>>4)&0x3f
 //void SEND_595(unsigned char a) ;
 unsigned short crc16(const unsigned char *puchMsg, unsigned int usDataLen)
 {
