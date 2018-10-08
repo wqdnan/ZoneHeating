@@ -29,6 +29,7 @@ typedef int BOOLEAN,BOOL;
 extern unsigned short registerCtntSnd[MDBS_LEN];
 extern unsigned short registerCtntRcv[MDBS_LEN];
 extern unsigned char fctn16Flag;
+extern unsigned char slaveNum;
 //
 // Exported functions declare
 //

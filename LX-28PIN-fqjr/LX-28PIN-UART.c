@@ -25,6 +25,7 @@
 #include "SEG.h"
 #include "IIC.h"
 #include "ADC.h"
+#include "\hardware\EEPROM.h"
 
 //for modbus
 #include "\modbus\TIM.h"
@@ -34,7 +35,10 @@
 //end for modbus
 
 
-//#define _DEBUG 1
+#define _DEBUG 1
+#define _ID_WRITE 1
+#define _ID_NUM 4
+
 
 //#pragma config FOSC = HS1         //外部 8MHz
 #pragma config WDTEN  = OFF       //关闭 WDT
@@ -118,6 +122,7 @@ void Interrupt_High(void)
 	}
 	
 }
+unsigned char EE_RD_Buffer[16] = {0x00};   //读缓冲
 
 //-------------------------------------------------------------------------------
 //	主程序
@@ -127,8 +132,9 @@ void main(void)
 	unsigned char temp = 0;      //变量
 	unsigned char cnt = 0;      //变量
 	unsigned char str[3] = {0};
-	unsigned int iic_data = 0;
-	unsigned short tempF = 0;
+	float iic_data = 0;
+	float tempF = 0;
+	unsigned char i =0;
 	TIM2_PWM_Init();             //TMR2 PWM 输出初始化
 	TIM1_Init();                 //TMR1初始化 	
 	
@@ -143,7 +149,16 @@ void main(void)
 
 
 	Delay10KTCYx(160);           //延时
-
+/*
+//感觉没有效果 重新下载后则失效了
+#ifdef _ID_WRITE
+	temp = (unsigned char)_ID_NUM;
+	EE_writebyte(1,temp);
+#else
+	slaveNum = EE_readbyte(1);
+#endif
+*/	
+	//--------------------------------------------------------------------------
 	Delay10KTCYx(30);            //延时
 
 #ifndef _DEBUG
@@ -160,9 +175,11 @@ void main(void)
 		if(fctn16Flag == 0x35)//接收到modbus的写寄存器操作
 		{
 			fctn16Flag = 0;
-			tempF = (registerCtntRcv[0]&0xFF00)>>8;
-			tempF = tempF*10 + (registerCtntRcv[0]&0x00FF);
+			//tempF = (registerCtntRcv[0]&0xFF00)>>8;
+			//tempF = tempF*10 + (registerCtntRcv[0]&0x00FF);
 			//tempF = tempF*PWM_CYCLE/100;
+			tempF = registerCtntRcv[0]&0xFF;
+			tempF = 100-tempF;
 			setDutyCycle_CCP2(tempF);
 		}
 #ifndef _DEBUG		
@@ -170,11 +187,13 @@ void main(void)
 		{
 			fixedTimeFlag = 0;
 			iic_data = EE_Read_Byte(00);
-			tempF = (iic_data/32768.0*2048);//扩大1000倍
-			registerCtntSnd[0] =(tempF/1000%10)<<8;
-			registerCtntSnd[0] += (tempF/100%10);
-			registerCtntSnd[1] = (tempF/10%10)<<8;
-			registerCtntSnd[1] += (tempF%10);
+			tempF = ((iic_data/32768.0*2.048)*VOL_TO_TMPTURE_A+VOL_TO_TMPTURE_B)*10+4000;//扩大1000倍
+			registerCtntSnd[0] = (unsigned short )tempF;
+		
+			//registerCtntSnd[0] =(tempF/1000%10)<<8;
+			//registerCtntSnd[0] += (tempF/100%10);
+			//registerCtntSnd[1] = (tempF/10%10)<<8;
+			//registerCtntSnd[1] += (tempF%10);
 		}
 #endif
 		

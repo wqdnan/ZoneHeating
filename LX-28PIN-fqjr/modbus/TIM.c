@@ -88,3 +88,39 @@ void setDutyCycle_CCP2(unsigned int Duty)
 	CCPR2L = (unsigned char)((unsigned int)cycle>>2);
 	CCP2CON |= (unsigned char)(((unsigned int)cycle&0x0003)<<4);
 }
+
+//------------------------------------------------------
+//使用设定温度和实际温度进行PID闭环控制，得出当前的PWM控制占空比来控制温度
+//定时执行，执行周期设定为10ms的整数倍
+//setTmpture-从modbus处获取到的两字节的内容
+//crtTmpture-从IIC处获取到的两字节的内容
+//------------------------------------------------------
+void PID_Control(unsigned short setTmpture,unsigned short crtTmpture)
+{
+	static const float A = Kp_tpture*(1+T/Ti_tpture+Td_tpture);
+	static const float B = Kp_tpture*(1+2*Td_tpture/T);
+	static const float C = Kp_tpture*Td_tpture/T;
+	static const PWM_H = 1000;
+	static const PWM_L = -1000;
+	static float err = 0,err_l = 0,err_ll = 0;//定义偏差，上次偏差，上上次偏差
+	static float PWM_tmp = 0;
+	static float PWM = 0;
+	float setTmp = 0,crtTmp = 0;
+	float dutyCycle = 0;
+	//start to count
+	crtTmp = (crtTmpture/32768.0*2.048)*VOL_TO_TMPTURE_A+VOL_TO_TMPTURE_B;
+	setTmp = setTmpture * 0.01;
+	err_ll = err_l;
+	err_l = err;
+	err = setTmp - crtTmp;
+	PWM_tmp = (A*err-B*err_l+C*err_ll);
+	PWM += PWM_tmp;
+	//需要限幅吧
+	if(PWM > PWM_H)
+		PWM = PWM_H;	
+	else if(PWM < PWM_L)
+		PWM = PWM_L;
+	//调用PWM占空比驱动功率器件
+	dutyCycle = 100-(PWM/(PWM_H+PWM_L)*100);
+	setDutyCycle_CCP2((unsigned int)dutyCycle);
+}

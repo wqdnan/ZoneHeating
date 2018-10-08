@@ -7,6 +7,8 @@
 *******************************/
 #include "type.h"
 
+unsigned char slaveNum = 0;//定义的从机的ID
+
 //字地址 0 - 255 (只取低8位)
 //位地址 0 - 255 (只取低8位)
 
@@ -439,17 +441,19 @@ UINT16 getRegisterVal(UINT16 addr, UINT16 *tempData)
 	UINT16 tempAddr;
 
 	tempAddr = addr & 0xfff;
-
+	
+	*tempData = registerCtntSnd[tempAddr];
+/*
 	switch(tempAddr) 	//& 0xff
 	{
 		case 0:
 			*tempData = testRegister0;
 			break;
 		case 1:
-			*tempData = registerCtntSnd[0];//testRegister1;
+			*tempData = testRegister1;//registerCtntSnd[0];//
 			break;
 		case 2:
-			*tempData = registerCtntSnd[1];//testRegister2;
+			*tempData = testRegister2;//registerCtntSnd[1];//
 			break;
 		case 3:
 			*tempData = testRegister3;
@@ -489,7 +493,7 @@ UINT16 getRegisterVal(UINT16 addr, UINT16 *tempData)
 		default:
 			break;
 	}
-
+*/
 	return result;
 }
 
