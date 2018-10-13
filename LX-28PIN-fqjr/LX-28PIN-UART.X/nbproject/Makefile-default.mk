@@ -57,17 +57,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../LX-28PIN-UART.c ../modbus/TIM.c ../modbus/MODBUS.c ../modbus/UART.c ../hardware/EEPROM.c
+SOURCEFILES_QUOTED_IF_SPACED=../LX-28PIN-UART.c ../modbus/TIM.c ../modbus/MODBUS.c ../modbus/UART.c ../hardware/EEPROM.c ../hardware/ADC.c ../hardware/IIC.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1472/LX-28PIN-UART.o ${OBJECTDIR}/_ext/984464531/TIM.o ${OBJECTDIR}/_ext/984464531/MODBUS.o ${OBJECTDIR}/_ext/984464531/UART.o ${OBJECTDIR}/_ext/439174825/EEPROM.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1472/LX-28PIN-UART.o.d ${OBJECTDIR}/_ext/984464531/TIM.o.d ${OBJECTDIR}/_ext/984464531/MODBUS.o.d ${OBJECTDIR}/_ext/984464531/UART.o.d ${OBJECTDIR}/_ext/439174825/EEPROM.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1472/LX-28PIN-UART.o ${OBJECTDIR}/_ext/984464531/TIM.o ${OBJECTDIR}/_ext/984464531/MODBUS.o ${OBJECTDIR}/_ext/984464531/UART.o ${OBJECTDIR}/_ext/439174825/EEPROM.o ${OBJECTDIR}/_ext/439174825/ADC.o ${OBJECTDIR}/_ext/439174825/IIC.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1472/LX-28PIN-UART.o.d ${OBJECTDIR}/_ext/984464531/TIM.o.d ${OBJECTDIR}/_ext/984464531/MODBUS.o.d ${OBJECTDIR}/_ext/984464531/UART.o.d ${OBJECTDIR}/_ext/439174825/EEPROM.o.d ${OBJECTDIR}/_ext/439174825/ADC.o.d ${OBJECTDIR}/_ext/439174825/IIC.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1472/LX-28PIN-UART.o ${OBJECTDIR}/_ext/984464531/TIM.o ${OBJECTDIR}/_ext/984464531/MODBUS.o ${OBJECTDIR}/_ext/984464531/UART.o ${OBJECTDIR}/_ext/439174825/EEPROM.o
+OBJECTFILES=${OBJECTDIR}/_ext/1472/LX-28PIN-UART.o ${OBJECTDIR}/_ext/984464531/TIM.o ${OBJECTDIR}/_ext/984464531/MODBUS.o ${OBJECTDIR}/_ext/984464531/UART.o ${OBJECTDIR}/_ext/439174825/EEPROM.o ${OBJECTDIR}/_ext/439174825/ADC.o ${OBJECTDIR}/_ext/439174825/IIC.o
 
 # Source Files
-SOURCEFILES=../LX-28PIN-UART.c ../modbus/TIM.c ../modbus/MODBUS.c ../modbus/UART.c ../hardware/EEPROM.c
+SOURCEFILES=../LX-28PIN-UART.c ../modbus/TIM.c ../modbus/MODBUS.c ../modbus/UART.c ../hardware/EEPROM.c ../hardware/ADC.c ../hardware/IIC.c
 
 
 CFLAGS=
@@ -105,7 +105,7 @@ ${OBJECTDIR}/_ext/1472/LX-28PIN-UART.o: ../LX-28PIN-UART.c  nbproject/Makefile-$
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
 	@${RM} ${OBJECTDIR}/_ext/1472/LX-28PIN-UART.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/LX-28PIN-UART.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -I".." -I"../hardware" -I"../modbus" -I"." -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/1472/LX-28PIN-UART.o   ../LX-28PIN-UART.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -I".." -I"../hardware" -I"../modbus" -I"." -ms -oa- -o-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/1472/LX-28PIN-UART.o   ../LX-28PIN-UART.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/_ext/1472/LX-28PIN-UART.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/LX-28PIN-UART.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -113,7 +113,7 @@ ${OBJECTDIR}/_ext/984464531/TIM.o: ../modbus/TIM.c  nbproject/Makefile-${CND_CON
 	@${MKDIR} "${OBJECTDIR}/_ext/984464531" 
 	@${RM} ${OBJECTDIR}/_ext/984464531/TIM.o.d 
 	@${RM} ${OBJECTDIR}/_ext/984464531/TIM.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -I".." -I"../hardware" -I"../modbus" -I"." -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/984464531/TIM.o   ../modbus/TIM.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -I".." -I"../hardware" -I"../modbus" -I"." -ms -oa- -o-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/984464531/TIM.o   ../modbus/TIM.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/_ext/984464531/TIM.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/984464531/TIM.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -121,7 +121,7 @@ ${OBJECTDIR}/_ext/984464531/MODBUS.o: ../modbus/MODBUS.c  nbproject/Makefile-${C
 	@${MKDIR} "${OBJECTDIR}/_ext/984464531" 
 	@${RM} ${OBJECTDIR}/_ext/984464531/MODBUS.o.d 
 	@${RM} ${OBJECTDIR}/_ext/984464531/MODBUS.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -I".." -I"../hardware" -I"../modbus" -I"." -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/984464531/MODBUS.o   ../modbus/MODBUS.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -I".." -I"../hardware" -I"../modbus" -I"." -ms -oa- -o-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/984464531/MODBUS.o   ../modbus/MODBUS.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/_ext/984464531/MODBUS.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/984464531/MODBUS.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -129,7 +129,7 @@ ${OBJECTDIR}/_ext/984464531/UART.o: ../modbus/UART.c  nbproject/Makefile-${CND_C
 	@${MKDIR} "${OBJECTDIR}/_ext/984464531" 
 	@${RM} ${OBJECTDIR}/_ext/984464531/UART.o.d 
 	@${RM} ${OBJECTDIR}/_ext/984464531/UART.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -I".." -I"../hardware" -I"../modbus" -I"." -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/984464531/UART.o   ../modbus/UART.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -I".." -I"../hardware" -I"../modbus" -I"." -ms -oa- -o-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/984464531/UART.o   ../modbus/UART.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/_ext/984464531/UART.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/984464531/UART.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -137,16 +137,32 @@ ${OBJECTDIR}/_ext/439174825/EEPROM.o: ../hardware/EEPROM.c  nbproject/Makefile-$
 	@${MKDIR} "${OBJECTDIR}/_ext/439174825" 
 	@${RM} ${OBJECTDIR}/_ext/439174825/EEPROM.o.d 
 	@${RM} ${OBJECTDIR}/_ext/439174825/EEPROM.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -I".." -I"../hardware" -I"../modbus" -I"." -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/439174825/EEPROM.o   ../hardware/EEPROM.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -I".." -I"../hardware" -I"../modbus" -I"." -ms -oa- -o-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/439174825/EEPROM.o   ../hardware/EEPROM.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/_ext/439174825/EEPROM.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/439174825/EEPROM.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/_ext/439174825/ADC.o: ../hardware/ADC.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/439174825" 
+	@${RM} ${OBJECTDIR}/_ext/439174825/ADC.o.d 
+	@${RM} ${OBJECTDIR}/_ext/439174825/ADC.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -I".." -I"../hardware" -I"../modbus" -I"." -ms -oa- -o-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/439174825/ADC.o   ../hardware/ADC.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/_ext/439174825/ADC.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/439174825/ADC.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/_ext/439174825/IIC.o: ../hardware/IIC.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/439174825" 
+	@${RM} ${OBJECTDIR}/_ext/439174825/IIC.o.d 
+	@${RM} ${OBJECTDIR}/_ext/439174825/IIC.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1 -p$(MP_PROCESSOR_OPTION) -I".." -I"../hardware" -I"../modbus" -I"." -ms -oa- -o-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/439174825/IIC.o   ../hardware/IIC.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/_ext/439174825/IIC.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/439174825/IIC.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
 else
 ${OBJECTDIR}/_ext/1472/LX-28PIN-UART.o: ../LX-28PIN-UART.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}/_ext/1472" 
 	@${RM} ${OBJECTDIR}/_ext/1472/LX-28PIN-UART.o.d 
 	@${RM} ${OBJECTDIR}/_ext/1472/LX-28PIN-UART.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -I".." -I"../hardware" -I"../modbus" -I"." -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/1472/LX-28PIN-UART.o   ../LX-28PIN-UART.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -I".." -I"../hardware" -I"../modbus" -I"." -ms -oa- -o-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/1472/LX-28PIN-UART.o   ../LX-28PIN-UART.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/_ext/1472/LX-28PIN-UART.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/1472/LX-28PIN-UART.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -154,7 +170,7 @@ ${OBJECTDIR}/_ext/984464531/TIM.o: ../modbus/TIM.c  nbproject/Makefile-${CND_CON
 	@${MKDIR} "${OBJECTDIR}/_ext/984464531" 
 	@${RM} ${OBJECTDIR}/_ext/984464531/TIM.o.d 
 	@${RM} ${OBJECTDIR}/_ext/984464531/TIM.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -I".." -I"../hardware" -I"../modbus" -I"." -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/984464531/TIM.o   ../modbus/TIM.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -I".." -I"../hardware" -I"../modbus" -I"." -ms -oa- -o-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/984464531/TIM.o   ../modbus/TIM.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/_ext/984464531/TIM.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/984464531/TIM.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -162,7 +178,7 @@ ${OBJECTDIR}/_ext/984464531/MODBUS.o: ../modbus/MODBUS.c  nbproject/Makefile-${C
 	@${MKDIR} "${OBJECTDIR}/_ext/984464531" 
 	@${RM} ${OBJECTDIR}/_ext/984464531/MODBUS.o.d 
 	@${RM} ${OBJECTDIR}/_ext/984464531/MODBUS.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -I".." -I"../hardware" -I"../modbus" -I"." -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/984464531/MODBUS.o   ../modbus/MODBUS.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -I".." -I"../hardware" -I"../modbus" -I"." -ms -oa- -o-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/984464531/MODBUS.o   ../modbus/MODBUS.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/_ext/984464531/MODBUS.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/984464531/MODBUS.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -170,7 +186,7 @@ ${OBJECTDIR}/_ext/984464531/UART.o: ../modbus/UART.c  nbproject/Makefile-${CND_C
 	@${MKDIR} "${OBJECTDIR}/_ext/984464531" 
 	@${RM} ${OBJECTDIR}/_ext/984464531/UART.o.d 
 	@${RM} ${OBJECTDIR}/_ext/984464531/UART.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -I".." -I"../hardware" -I"../modbus" -I"." -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/984464531/UART.o   ../modbus/UART.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -I".." -I"../hardware" -I"../modbus" -I"." -ms -oa- -o-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/984464531/UART.o   ../modbus/UART.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/_ext/984464531/UART.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/984464531/UART.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
@@ -178,9 +194,25 @@ ${OBJECTDIR}/_ext/439174825/EEPROM.o: ../hardware/EEPROM.c  nbproject/Makefile-$
 	@${MKDIR} "${OBJECTDIR}/_ext/439174825" 
 	@${RM} ${OBJECTDIR}/_ext/439174825/EEPROM.o.d 
 	@${RM} ${OBJECTDIR}/_ext/439174825/EEPROM.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -I".." -I"../hardware" -I"../modbus" -I"." -ms -oa- -Ou- -Ot- -Ob- -Op- -Or- -Od- -Opa-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/439174825/EEPROM.o   ../hardware/EEPROM.c 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -I".." -I"../hardware" -I"../modbus" -I"." -ms -oa- -o-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/439174825/EEPROM.o   ../hardware/EEPROM.c 
 	@${DEP_GEN} -d ${OBJECTDIR}/_ext/439174825/EEPROM.o 
 	@${FIXDEPS} "${OBJECTDIR}/_ext/439174825/EEPROM.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/_ext/439174825/ADC.o: ../hardware/ADC.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/439174825" 
+	@${RM} ${OBJECTDIR}/_ext/439174825/ADC.o.d 
+	@${RM} ${OBJECTDIR}/_ext/439174825/ADC.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -I".." -I"../hardware" -I"../modbus" -I"." -ms -oa- -o-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/439174825/ADC.o   ../hardware/ADC.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/_ext/439174825/ADC.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/439174825/ADC.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
+	
+${OBJECTDIR}/_ext/439174825/IIC.o: ../hardware/IIC.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/439174825" 
+	@${RM} ${OBJECTDIR}/_ext/439174825/IIC.o.d 
+	@${RM} ${OBJECTDIR}/_ext/439174825/IIC.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -p$(MP_PROCESSOR_OPTION) -I".." -I"../hardware" -I"../modbus" -I"." -ms -oa- -o-  -I ${MP_CC_DIR}\\..\\h  -fo ${OBJECTDIR}/_ext/439174825/IIC.o   ../hardware/IIC.c 
+	@${DEP_GEN} -d ${OBJECTDIR}/_ext/439174825/IIC.o 
+	@${FIXDEPS} "${OBJECTDIR}/_ext/439174825/IIC.o.d" $(SILENT) -rsi ${MP_CC_DIR}../ -c18 
 	
 endif
 

@@ -9,6 +9,8 @@
       <itemPath>../hardware/EEPROM.h</itemPath>
       <itemPath>../delays.h</itemPath>
       <itemPath>../p18cxxx.h</itemPath>
+      <itemPath>../hardware/ADC.h</itemPath>
+      <itemPath>../hardware/IIC.h</itemPath>
     </logicalFolder>
     <logicalFolder name="SourceFiles" displayName="源文件" projectFiles="true">
       <itemPath>../LX-28PIN-UART.c</itemPath>
@@ -16,6 +18,8 @@
       <itemPath>../modbus/MODBUS.c</itemPath>
       <itemPath>../modbus/UART.c</itemPath>
       <itemPath>../hardware/EEPROM.c</itemPath>
+      <itemPath>../hardware/ADC.c</itemPath>
+      <itemPath>../hardware/IIC.c</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript" displayName="链接器文件" projectFiles="true">
     </logicalFolder>
@@ -72,7 +76,7 @@
         <property key="code-model" value="ms"/>
         <property key="data-model" value="oa-"/>
         <property key="default-char-unsigned" value="false"/>
-        <property key="enable-all-optimizations" value="true"/>
+        <property key="enable-all-optimizations" value="false"/>
         <property key="enable-int-promotion" value="false"/>
         <property key="enable-multi-bank-stack-model" value="false"/>
         <property key="enable-ob" value="false"/>
@@ -87,7 +91,7 @@
         <property key="enable-ou" value="false"/>
         <property key="enable-ow" value="true"/>
         <property key="extra-include-directories" value="..;..\hardware;..\modbus;."/>
-        <property key="optimization-master" value="Custom"/>
+        <property key="optimization-master" value="Disable all"/>
         <property key="preprocessor-macros" value=""/>
         <property key="procedural-abstraction-passes" value="4"/>
         <property key="storage-class" value="sca"/>
@@ -105,7 +109,7 @@
       <C18-LD>
         <property key="cod-file" value="true"/>
         <property key="extra-lib-directories"
-                  value="C:\Program Files\Microchip\mplabc18\v3.38\lib;;."/>
+                  value="C:\Program Files\Microchip\mplabc18\v3.38\lib;."/>
         <property key="hex-output-format" value="INHX32"/>
         <property key="map-file" value="&quot;$(BINDIR_)$(TARGETBASE).map&quot;"/>
       </C18-LD>

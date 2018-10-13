@@ -122,6 +122,8 @@ void EE_SEQU_Write(unsigned int addr,unsigned char length,unsigned char *dptr)
 unsigned int EE_Read_Byte(unsigned int addr)
 {
 	unsigned int f;	
+    unsigned int f1;
+    unsigned int f2;	
 	IdleI2C();                      // ensure module is idle
   	StartI2C();                     // Start condition
 	I2C_Done();                     // Wait Start condition completed
@@ -130,11 +132,15 @@ unsigned int EE_Read_Byte(unsigned int addr)
 	while(SSPCON2bits.ACKSTAT);     // test for ACK condition, if received
 	I2C_Done();                     // Clear SSPIF flag
 
-	f=ReadI2C();                    // Enable I2C Receiver & wait BF=1 until received data
+	f2=ReadI2C();                    // Enable I2C Receiver & wait BF=1 until received data
 	I2C_Done();                     // Clear SSPIF flag
-
-	f= f*256 + ReadI2C();                    // Enable I2C Receiver & wait BF=1 until received data
+    
+    AckI2C(); 
+	I2C_Done();
+    
+	f1=ReadI2C();                    // Enable I2C Receiver & wait BF=1 until received data
 	I2C_Done();                     // Clear SSPIF flag
+    f= f2*256 + f1;
 
 	NotAckI2C();                    // Genarate Non_Acknowledge to EEPROM
 	I2C_Done();	   
