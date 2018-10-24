@@ -80,7 +80,7 @@ void TIM2_PWM_Init(void)
 //修改CCP2 对应为 RC2 引脚的占空比 
 //在预分频=1情况下，Duty=0 代表0%  Duty=100 代表100%
 //---------------------------------------------------------
-void setDutyCycle_CCP2(unsigned int Duty)
+void setDutyCycle_CCP2(float Duty)
 {
 	float cycle = 0;
 	cycle = Duty*0.01;
@@ -92,10 +92,10 @@ void setDutyCycle_CCP2(unsigned int Duty)
 //------------------------------------------------------
 //使用设定温度和实际温度进行PID闭环控制，得出当前的PWM控制占空比来控制温度
 //定时执行，执行周期设定为10ms的整数倍
-//setTmpture-从modbus处获取到的两字节的内容
+//setTmpture-从modbus处获取到的两字节的内容  摄氏度*100 unsigned short范围为0~0xFFFF(65535), unsigned int范围为0~0xFFFF(65535)
 //crtTmpture-从IIC处获取到的两字节的内容
 //------------------------------------------------------
-void PID_Control(unsigned short setTmpture,unsigned short crtTmpture)
+void PID_Control(unsigned int setTmpture,unsigned int crtTmpture)
 {
 	static const float A = Kp_tpture*(1+T/Ti_tpture+Td_tpture);
 	static const float B = Kp_tpture*(1+2*Td_tpture/T);
@@ -104,12 +104,17 @@ void PID_Control(unsigned short setTmpture,unsigned short crtTmpture)
 	static const PWM_L = -1000;
 	static float err = 0,err_l = 0,err_ll = 0;//定义偏差，上次偏差，上上次偏差
 	static float PWM_tmp = 0;
-	static float PWM = 0;
+	static float PWM = 0;//(-1000~1000)
 	float setTmp = 0,crtTmp = 0;
 	float dutyCycle = 0;
+	float dutyCycleTmp = 0;
+
+	unsigned int disTmp = 0;
 	//start to count
-	crtTmp = (crtTmpture/32768.0*2.048)*VOL_TO_TMPTURE_A+VOL_TO_TMPTURE_B;
-	setTmp = setTmpture * 0.01;
+//	crtTmp = (crtTmpture/32768.0*2.048)*VOL_TO_TMPTURE_A+VOL_TO_TMPTURE_B;
+//	setTmp = setTmpture * 0.01;
+	crtTmp = crtTmpture;
+	setTmp = setTmpture;
 	err_ll = err_l;
 	err_l = err;
 	err = setTmp - crtTmp;
@@ -121,6 +126,17 @@ void PID_Control(unsigned short setTmpture,unsigned short crtTmpture)
 	else if(PWM < PWM_L)
 		PWM = PWM_L;
 	//调用PWM占空比驱动功率器件
-	dutyCycle = 100-(PWM/(PWM_H+PWM_L)*100);
-	setDutyCycle_CCP2((unsigned int)dutyCycle);
+	dutyCycleTmp = ((PWM-PWM_L)/(PWM_H-PWM_L))*100.0;
+	dutyCycle = 100.0-dutyCycleTmp;
+	setDutyCycle_CCP2(dutyCycle);
+
+	disTmp = (100-dutyCycle)*100;
+	//0~65536
+	sendBuf[0] = '0' + (unsigned int)disTmp/10000%10;
+	sendBuf[1] = '0' + (unsigned int)disTmp/1000%10;
+	sendBuf[2] = '0' + (unsigned int)disTmp/100%10;
+	sendBuf[3] = '0' + (unsigned int)disTmp/10%10;
+	sendBuf[4] = '0' + (unsigned int)disTmp/1%10;
+	sendBuf[5] = ';';
+	UartSendBytes(sendBuf,6);
 }

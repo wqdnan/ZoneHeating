@@ -124,6 +124,8 @@ void main(void)
 	unsigned char cnt = 0;      //变量
 	unsigned char str[3] = {0};
 	unsigned int iic_data = 0;
+	unsigned int displayTmp = 0;
+	unsigned int tmpU16 = 0;
 	float tempF = 0;
 	unsigned char i =0;
 	TIM2_PWM_Init();             //TMR2 PWM 输出初始化
@@ -183,23 +185,25 @@ void main(void)
 			fixedTimeFlag = 0;
 			iic_data = EE_Read_Byte(00);
 			//tempF = ((iic_data/32768.0*2.048)*VOL_TO_TMPTURE_A+VOL_TO_TMPTURE_B);//*10+4000;//扩大1000倍
-            tmpADC = iic_data;
-			registerCtntSnd[0] = (unsigned short )tempF;
+            tmpADC = ((iic_data/32768.0*2.048)*VOL_TO_TMPTURE_A+VOL_TO_TMPTURE_B);//iic_data;
+//			registerCtntSnd[0] = (unsigned short )tempF;
 		
+			displayTmp = tmpADC*100;
+
+			PID_Control(3000,tmpADC*100);
 			//0~65536
-			sendBuf[0] = '0' + iic_data/10000%10;
-			sendBuf[1] = '0' + iic_data/1000%10;
-			sendBuf[2] = '0' + iic_data/100%10;
-			sendBuf[3] = '0' + iic_data/10%10;
-			sendBuf[4] = '0' + iic_data/1%10;
+			sendBuf[0] = '0' + (unsigned int)displayTmp/10000%10;
+			sendBuf[1] = '0' + (unsigned int)displayTmp/1000%10;
+			sendBuf[2] = '0' + (unsigned int)displayTmp/100%10;
+			sendBuf[3] = '0' + (unsigned int)displayTmp/10%10;
+			sendBuf[4] = '0' + (unsigned int)displayTmp/1%10;
 			sendBuf[5] = ',';
 			sendBuf[6] = 0x0D;
 			UartSendBytes(sendBuf,7);
 
-			//registerCtntSnd[0] =(tempF/1000%10)<<8;
-			//registerCtntSnd[0] += (tempF/100%10);
-			//registerCtntSnd[1] = (tempF/10%10)<<8;
-			//registerCtntSnd[1] += (tempF%10);
+			tmpU16 = (tmpADC + 400.0)*10;
+			registerCtntSnd[0] = tmpU16;//(tmpU16 & 0xff00) >> 8;
+//			registerCtntSnd[1] = (tmpU16 & 0x00ff);
 		}
 #endif
 		

@@ -30,7 +30,7 @@ void TIM1_Init();
 void timerProc(void);
 
 void TIM2_PWM_Init(void);
-void setDutyCycle_CCP2(unsigned int Duty);         //PWM 占空比转换
-void PID_Control(unsigned short setTmpture,unsigned short crtTmpture);
+void setDutyCycle_CCP2(float Duty);         //PWM 占空比转换
+void PID_Control(unsigned int setTmpture,unsigned int crtTmpture);
 
 #endif
