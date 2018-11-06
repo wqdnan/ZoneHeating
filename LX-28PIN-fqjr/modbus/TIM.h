@@ -14,8 +14,8 @@
 
 
 //for PID control start
-#define VOL_TO_TMPTURE_A 491.4   //定义了IIC采样的电压值对应到温度的参数（PT100）
-#define VOL_TO_TMPTURE_B -303.3  // 温度值 = A * 电压值 + B
+#define VOL_TO_TMPTURE_A 459.487//491.4   //定义了IIC采样的电压值对应到温度的参数（PT100）
+#define VOL_TO_TMPTURE_B -290.964//-303.3  // 温度值 = A * 电压值 + B
 
 #define Kp_tpture 1        //PID 温度闭环算法中的P I D参数
 #define Ti_tpture 0.01

@@ -199,9 +199,9 @@ void main(void)
 			sendBuf[4] = '0' + (unsigned int)displayTmp/1%10;
 			sendBuf[5] = ',';
 			sendBuf[6] = 0x0D;
-			UartSendBytes(sendBuf,7);
+			//UartSendBytes(sendBuf,7);
 
-			tmpU16 = (tmpADC + 400.0)*10;
+			tmpU16 = (tmpADC + 40.0)*100;
 			registerCtntSnd[0] = tmpU16;//(tmpU16 & 0xff00) >> 8;
 //			registerCtntSnd[1] = (tmpU16 & 0x00ff);
 		}

@@ -138,5 +138,5 @@ void PID_Control(unsigned int setTmpture,unsigned int crtTmpture)
 	sendBuf[3] = '0' + (unsigned int)disTmp/10%10;
 	sendBuf[4] = '0' + (unsigned int)disTmp/1%10;
 	sendBuf[5] = ';';
-	UartSendBytes(sendBuf,6);
+	//UartSendBytes(sendBuf,6);
 }

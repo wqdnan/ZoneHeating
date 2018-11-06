@@ -18,7 +18,7 @@ void UART_Init()
 	TRISCbits.TRISC7 = 1;       // 设置串口
 	TRISCbits.TRISC6 = 0;
 	
-	SPBRG = 51;                 // 波特率 9600 N 8 1 
+	SPBRG = 25;//51;                 // 波特率 9600 N 8 1  改为19200
 	RCSTAbits.SPEN = 1;         // 串口使能
 	TXSTAbits.BRGH = 1;         // 高速模式
 	TXSTAbits.SYNC = 0;         // 异步模式
