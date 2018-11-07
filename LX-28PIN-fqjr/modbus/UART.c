@@ -5,7 +5,7 @@
 
 
 int	dwTickCount,dwIntTick;//时钟
-unsigned char sendBuf[16], receBuf[16];//发送接收缓冲区
+unsigned char sendBuf[16], receBuf[75];//发送接收缓冲区
 unsigned char checkoutError;// ==2 偶校验错
 unsigned char receTimeOut;//接收超时
 

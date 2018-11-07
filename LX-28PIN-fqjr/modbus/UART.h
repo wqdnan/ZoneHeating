@@ -18,7 +18,7 @@ void UartSendByte (unsigned char mydata_byte);
 void UartSendBytes (unsigned char*buf,unsigned int nLen);
 
 extern int dwTickCount,dwIntTick;
-extern unsigned char sendBuf[16],receBuf[16];
+extern unsigned char sendBuf[16],receBuf[75];
 extern unsigned char checkoutError;
 extern unsigned char receTimeOut;
 

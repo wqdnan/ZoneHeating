@@ -6,7 +6,7 @@
 在AT89S52单片机上测试通过，可以移植到其他51系列单片机
 *******************************/
 #include "type.h"
-#define localAdd  0x01
+#define localAdd  0x02
 unsigned char slaveNum = localAdd;//定义的从机的ID
 
 //字地址 0 - 255 (只取低8位)
@@ -74,18 +74,10 @@ const rom unsigned char auchCRCLo[] = {
 } ;
 #pragma romdata
 UINT8   testCoil;       //用于测试 位地址1
-UINT16 testRegister0,	// 测试寄存器
-			testRegister1,
-			testRegister2,
-			testRegister3,
-			testRegister4,
-			testRegister5,
-			testRegister6,
-			testRegister7,
-			testRegister8,
-			testRegister9;
-unsigned short registerCtntSnd[MDBS_LEN] = {0};//定义用于发送给主机modbus通信的数据内容
+
+unsigned short registerCtntSnd[MDBS_LEN] = {0};//定义用于发送给主机modbus通信的数据内容，0-实时温度，1-实时电流
 unsigned short registerCtntRcv[MDBS_LEN] = {0};//定义用于接收主机modbus通信数据内容
+structComm commData;
 unsigned char fctn16Flag = 0;
 UINT8   localAddr;
 unsigned char crcH = 0;
@@ -299,38 +291,35 @@ void presetMultipleRegisters(void)
 	UINT16 dataH = 0;
 	UINT16 dataL = 0;
 
-	//addr = (receBuf[2]<<8) + receBuf[3];
-	//tempAddr = addr & 0xfff;
 	addr = receBuf[3];
 	tempAddr = addr & 0xff;
 
-	//setCount = (receBuf[4]<<8) + receBuf[5];
 	setCount = receBuf[5];
 	byteCount = receBuf[6];
 
 	for (i = 0; i < setCount; i++, tempAddr++) {
-		//SBUF = receBuf[i*2+7];
-		//SBUF = receBuf[i*2+8];
+
 		dataH = receBuf[i*2+7];
 		dataL = receBuf[i*2+8];
 		tempData = dataH*256 + dataL;
-		//tempData = (receBuf[i*2+7] << 8) + receBuf[i*2+8];
-		fctn16Flag = 0x35;
 		setRegisterVal(tempAddr, tempData);
 	}
+	if(receBuf[0] !=00)//不是广播则回复
+	{
+		sendBuf[0] = localAddr;
+		sendBuf[1] = 16;
+		sendBuf[2] = addr >> 8;
+		sendBuf[3] = addr & 0xff;
+		sendBuf[4] = setCount >> 8;
+		sendBuf[5] = setCount & 0xff;
+		crcData = crc16(sendBuf, 6);
+		sendBuf[6] = crcData >> 8;
+		sendBuf[7] = crcData & 0xff;
+		sendCount = 8;
 
-	sendBuf[0] = localAddr;
-	sendBuf[1] = 16;
-	sendBuf[2] = addr >> 8;
-	sendBuf[3] = addr & 0xff;
-	sendBuf[4] = setCount >> 8;
-	sendBuf[5] = setCount & 0xff;
-	crcData = crc16(sendBuf, 6);
-	sendBuf[6] = crcData >> 8;
-	sendBuf[7] = crcData & 0xff;
-	sendCount = 8;
+		beginSend();
+	}
 
-	beginSend();
 }
 
 //取线圈状态 返回0表示成功
@@ -435,126 +424,48 @@ UINT16 setCoilVal(UINT16 addr, UINT16 tempData)
 }
 
 //取寄存器值 返回0表示成功
+//将本机的相关数据放入到寄存器中，准备反馈给上位机
 UINT16 getRegisterVal(UINT16 addr, UINT16 *tempData)
 {
 	UINT16 result = 0;
 	UINT16 tempAddr;
 
-	tempAddr = addr & 0xfff;
-	
+	tempAddr = addr & 0xff;//先取低8位，再确认偏移量
 	*tempData = registerCtntSnd[tempAddr];
-/*
-	switch(tempAddr) 	//& 0xff
-	{
-		case 0:
-			*tempData = testRegister0;
-			break;
-		case 1:
-			*tempData = testRegister1;//registerCtntSnd[0];//
-			break;
-		case 2:
-			*tempData = testRegister2;//registerCtntSnd[1];//
-			break;
-		case 3:
-			*tempData = testRegister3;
-			break;
-		case 4:
-			*tempData = testRegister4;
-			break;
-		case 5:
-			*tempData = testRegister5;
-			break;
-		case 6:
-			*tempData = testRegister6;
-			break;
-		case 7:
-			*tempData = testRegister7;
-			break;
-		case 8:
-			*tempData = testRegister8;
-			break;
-		case 9:
-			*tempData = testRegister9;
-			break;
-		case 10:
-			break;
-		case 11:
-			break;
-		case 12:
-			break;
-		case 13:
-			break;
-		case 14:
-			break;
-		case 15:
-			break;
-		case 16:
-			break;
-		default:
-			break;
-	}
-*/
 	return result;
 }
 
 //设置寄存器值 返回0表示成功
+//将上位机的值读取到本机相关内存中
+//将数据提取修改为针对广播的提取方法和单独提取
+//如果是广播，则按照寄存器地址进行读取，如果是单独提取，则全部读取数据
 UINT16 setRegisterVal(UINT16 addr, UINT16 tempData)
 {
 	UINT16 result = 0;
 	UINT16 tempAddr;
-
+	float tmpDataf = (float)tempData;
 	tempAddr = addr & 0xfff;
-	registerCtntRcv[tempAddr] = tempData;
-	switch(tempAddr) 	//& 0xff
+	if(commData.rcvAddr == 0)//广播情况
 	{
-		case 0:
-			testRegister0 = tempData;
-			break;
-		case 1:
-			testRegister1 = tempData;
-			break;
-		case 2:
-			testRegister2 = tempData;
-			break;
-		case 3:
-			testRegister3 = tempData;
-			break;
-		case 4:
-			testRegister4 = tempData;
-			break;
-		case 5:
-			testRegister5 = tempData;
-			break;
-		case 6:
-			testRegister6 = tempData;
-			break;
-		case 7:
-			testRegister7 = tempData;
-			break;
-		case 8:
-			testRegister8 = tempData;
-			break;
-		case 9:
-			testRegister9 = tempData;
-			break;
-		case 10:
-			break;
-		case 11:
-			break;
-		case 12:
-			break;
-		case 13:
-			break;
-		case 14:
-			break;
-		case 15:
-			break;
-		case 16:
-			break;
-		default:
-			break;
+		if(((addr%MDBS_LEN)+1)==localAdd)//是本机数据
+		{
+			fctn16Flag = 0x35;
+			commData.commType = (addr/MDBS_LEN+1);
+			switch(commData.commType)
+			{
+			case DUTY_CYCLE:commData.setDutyCycle = tmpDataf;break;//占空比
+			case SET_TEMPTURE:commData.setTempture = (tmpDataf-4000)*0.01;break;//预设温度
+			case SET_VAR_A:commData.setVarA = (tmpDataf-10000)*0.1;break;//温度校准参数A
+			case SET_VAR_B:commData.setVarB = (tmpDataf-10000)*0.1;break;//温度校准参数B
+			default:break;
+			}
+		}
 	}
-
+	else//单发情况
+	{
+		fctn16Flag = 0x35;
+		registerCtntRcv[tempAddr] = tempData;
+	}
 	return result;
 }
 
@@ -641,12 +552,13 @@ void checkComm0Modbus(void)
 				if (receCount >= tempData) {
 
 					UART_DISABLE_INTERRUPT();
-
-					if (receBuf[0] == localAddr) {
+					//如果本机或广播，则提取相应数据出来
+					if ((receBuf[0] == localAddr)||(receBuf[0]==0)) {
 						crcData = crc16(receBuf, tempData - 2);
 					//	if (crcData == (receBuf[tempData-2] << 8) + receBuf[tempData-1]) 
 						if((crcH==receBuf[tempData-2]) && (crcL==receBuf[tempData-1]))
 						{
+							commData.rcvAddr = receBuf[0];
 							presetMultipleRegisters();
 						}
 					}

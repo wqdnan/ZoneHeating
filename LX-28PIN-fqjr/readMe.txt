@@ -1,5 +1,12 @@
 ///////////////////ZoneHeatingV/////////////////////////
-///////////////////ZoneHeatingV/////////////////////////
+///////////////////ZoneHeatingV0.05/////////////////////////
+加入多个读写功能：
+1：写校准参数，将VOL_TO_TMPTURE_A、VOL_TO_TMPTURE_B改为全局变量方便修改
+2：写预设温度，增加全局变量VOL_SET_TEMPURE 记录预设 温度值
+3：读实时温度，增加全局变量realTempture 记录实时温度值（PID使用）
+4：读实时电流，增加全局变量realCurrent 记录实时电流值（预警使用）
+     对应发送给主机的实时温度、实时电流值 还是使用registerCtntSnd[]数组，方便连续发送
+5：增加commData 结构体 用来记录通信所需的数据
 ///////////////////ZoneHeatingV0.0.45/////////////////////////
 修改：void setDutyCycle_CCP2(float Duty)为float型
 加入PID调试

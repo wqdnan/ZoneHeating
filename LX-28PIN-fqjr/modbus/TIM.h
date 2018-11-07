@@ -14,14 +14,20 @@
 
 
 //for PID control start
-#define VOL_TO_TMPTURE_A 459.487//491.4   //定义了IIC采样的电压值对应到温度的参数（PT100）
-#define VOL_TO_TMPTURE_B -290.964//-303.3  // 温度值 = A * 电压值 + B
+//#define VOL_TO_TMPTURE_A 459.487//491.4   //定义了IIC采样的电压值对应到温度的参数（PT100）
+//#define VOL_TO_TMPTURE_B -290.964//-303.3  // 温度值 = A * 电压值 + B
 
 #define Kp_tpture 1        //PID 温度闭环算法中的P I D参数
 #define Ti_tpture 0.01
 #define Td_tpture 0
 #define T 0.01             //算法定时执行间隔
 
+
+extern float VOL_TO_TMPTURE_A;
+extern float VOL_TO_TMPTURE_B;
+extern float VOL_SET_TEMPTURE;
+extern float VOL_REAL_TEMPTURE;
+extern float VOL_REAL_CURRENT;
 //for PID control end
 extern unsigned int b1ms;
 extern unsigned int bt1ms,b10ms,bt10ms,b100ms,bt100ms;

@@ -82,7 +82,7 @@ void Interrupt_High(void)
             receTimeOut = 5; //20ms内没有接受到数据超时 接收计数归0
             receBuf[receCount] = RCREG;
             receCount ++;
-            receCount &= 0x0f;		// 最多只接收16个字节数据
+            //receCount &= 0x0f;		// 最多只接收16个字节数据
            
         }
 	}
@@ -172,12 +172,31 @@ void main(void)
 		if(fctn16Flag == 0x35)//接收到modbus的写寄存器操作
 		{
 			fctn16Flag = 0;
-			//tempF = (registerCtntRcv[0]&0xFF00)>>8;
-			//tempF = tempF*10 + (registerCtntRcv[0]&0x00FF);
-			//tempF = tempF*PWM_CYCLE/100;
-			tempF = registerCtntRcv[0]&0xFF;
-			tempF = 100-tempF;
-			setDutyCycle_CCP2(tempF);
+			switch(commData.commType)
+			{
+			case DUTY_CYCLE:
+				//tempF = registerCtntRcv[0]&0xFF;
+				tempF = commData.setDutyCycle;
+				if(tempF>100)
+					tempF = 100;
+                else if(tempF<0)
+                    tempF = 0;
+				tempF = 100-tempF;
+				setDutyCycle_CCP2(tempF);
+				break;
+			case SET_TEMPTURE:
+				VOL_SET_TEMPTURE = commData.setTempture;
+				break;
+			case SET_VAR_A:
+				VOL_TO_TMPTURE_A = commData.setVarA;
+                VOL_TO_TMPTURE_B = commData.setVarB;
+				break;
+			case SET_VAR_B:
+                VOL_TO_TMPTURE_A = commData.setVarA;
+				VOL_TO_TMPTURE_B = commData.setVarB;
+				break;
+			}
+
 		}
 #ifndef _DEBUG		
 		if(fixedTimeFlag == 0x35)//定时采样中
@@ -203,6 +222,7 @@ void main(void)
 
 			tmpU16 = (tmpADC + 40.0)*100;
 			registerCtntSnd[0] = tmpU16;//(tmpU16 & 0xff00) >> 8;
+			VOL_REAL_TEMPTURE = tmpU16;
 //			registerCtntSnd[1] = (tmpU16 & 0x00ff);
 		}
 #endif

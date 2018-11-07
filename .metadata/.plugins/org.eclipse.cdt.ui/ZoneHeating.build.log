@@ -1,0 +1,9 @@
+09:50:09 **** Build of configuration Debug for project ZoneHeating ****
+make all 
+Cannot run program "make": Launching failed
+
+Error: Program "make" not found in PATH
+PATH=[C:/Ac6/SystemWorkbench/jre/bin/server;C:/Ac6/SystemWorkbench/jre/bin;C:/Ac6/SystemWorkbench/jre/lib/amd64;C:\Program Files (x86)\Microchip\mplabc18\v3.46\mpasm;C:\Program Files (x86)\Microchip\mplabc18\v3.46\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Common Files\Siemens\Automation\Simatic OAM\bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\ZF203\ARM\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\MATLAB\R2014a\runtime\win64;C:\Program Files\MATLAB\R2014a\bin;C:\Program Files\MATLAB\R2014a\polyspace\bin;C:\Program Files\MATLAB\MATLAB Compiler Runtime\v83\runtime\win64;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin\;C:\Program Files\IVI Foundation\VISA\Win64\Bin\;C:\Program Files (x86)\IVI Foundation\VISA\WinNT\Bin;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\projects\VS_projects\tools\openCV\opencv\build\x64\vc14\bin;C:\Program Files (x86)\Windows Kits\8.1\Windows Performance Toolkit\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Program Files (x86)\Microsoft SDKs\TypeScript\1.0\;C:\Program Files (x86)\Microchip\MPLAB C32 Suite\bin;C:\HTSOFT\PIC18\BIN;C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility;C:\Program Files (x86)\Microchip\mplabc18\v3.46\mpasm;C:\Program Files (x86)\Microchip\mplabc18\v3.46\bin;C:\Users\wqdnan\AppData\Local\GitHubDesktop\bin;C:\Program Files\Java\jre1.8.0_181\bin;C:\Ac6\SystemWorkbench\plugins\fr.ac6.mcu.ide_2.3.0.201710240950\resources\project_importer\windows]
+
+09:50:09 Build Finished (took 178ms)
+

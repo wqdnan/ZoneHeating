@@ -4,6 +4,12 @@
 unsigned int b1ms;
 unsigned int bt1ms,b10ms,bt10ms,b100ms,bt100ms;
 
+float VOL_TO_TMPTURE_A = 459.487;//491.4   //定义了IIC采样的电压值对应到温度的参数（PT100）
+float VOL_TO_TMPTURE_B = -290.964;//-303.3  // 温度值 = A * 电压值 + B
+float VOL_SET_TEMPTURE = 50;//预设温度值
+float VOL_REAL_TEMPTURE = 0;//实时温度值
+float VOL_REAL_CURRENT = 0;//实时电流值
+
 //定时一个1ms 的中断函数，用于modbus检测接收间隔
 void TIM1_Init()
 {
