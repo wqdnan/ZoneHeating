@@ -3,7 +3,13 @@
 
 #include "p18cxxx.h"              //Í·ÎÄ¼þ
 
-unsigned char EE_readbyte(unsigned char Addr);
-void EE_writebyte(unsigned char Addr,unsigned char Byte);
+#define ADDRESS 0x008000
+#define SECTION_LEN 64
+
+extern unsigned char flash_array[SECTION_LEN];
+
+void setFlashHandleAddr(unsigned int addr,unsigned char bias);
+unsigned char flash_readbyte(unsigned int Addr,unsigned char bias);
+void flash_writebyte(unsigned int Addr,unsigned char *array);
 
 #endif

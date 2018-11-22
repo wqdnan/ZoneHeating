@@ -6,7 +6,7 @@
 在AT89S52单片机上测试通过，可以移植到其他51系列单片机
 *******************************/
 #include "type.h"
-#define localAdd  0x02
+#define localAdd  0x03
 unsigned char slaveNum = localAdd;//定义的从机的ID
 
 //字地址 0 - 255 (只取低8位)
@@ -447,16 +447,27 @@ UINT16 setRegisterVal(UINT16 addr, UINT16 tempData)
 	tempAddr = addr & 0xfff;
 	if(commData.rcvAddr == 0)//广播情况
 	{
-		if(((addr%MDBS_LEN)+1)==localAdd)//是本机数据
+		//if(((addr%MDBS_LEN)+1)==localAdd)//是本机数据  这个地方和上位机不一致，暂时修改了统一十六个从机的占空比数值一个寄存器来表示
 		{
 			fctn16Flag = 0x35;
 			commData.commType = (addr/MDBS_LEN+1);
 			switch(commData.commType)
 			{
-			case DUTY_CYCLE:commData.setDutyCycle = tmpDataf;break;//占空比
-			case SET_TEMPTURE:commData.setTempture = (tmpDataf-4000)*0.01;break;//预设温度
-			case SET_VAR_A:commData.setVarA = (tmpDataf-10000)*0.1;break;//温度校准参数A
-			case SET_VAR_B:commData.setVarB = (tmpDataf-10000)*0.1;break;//温度校准参数B
+			case DUTY_CYCLE://占空比   这个地方改为统一寄存器修改，如果有多个，则以最后一个为准
+				commData.setDutyCycle = tmpDataf;
+				break;
+			case SET_TEMPTURE://预设温度
+				if(((addr%MDBS_LEN)+1)==localAdd)
+					commData.setTempture = (tmpDataf-4000)*0.01;
+				break;
+			case SET_VAR_A://温度校准参数A
+				if(((addr%MDBS_LEN)+1)==localAdd)
+					commData.setVarA = (tmpDataf-10000)*0.1;
+				break;
+			case SET_VAR_B://温度校准参数B
+				if(((addr%MDBS_LEN)+1)==localAdd)
+					commData.setVarB = (tmpDataf-10000)*0.1;
+				break;
 			default:break;
 			}
 		}

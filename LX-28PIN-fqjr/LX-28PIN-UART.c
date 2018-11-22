@@ -47,7 +47,7 @@
 #pragma config SOSCSEL= DIG       //数字 I/O
 
 unsigned char fixedTimeFlag  = 0;
-
+/*
 void Interrupt_High(void);      //中断函数 
 
 //-------------------------------------------------------------------------------
@@ -112,15 +112,16 @@ void Interrupt_High(void)
 	}
 	
 }
-unsigned char EE_RD_Buffer[16] = {0x00};   //读缓冲
+*/
+//unsigned char EE_RD_Buffer[16] = {0x00};   //读缓冲
 
 float tmpADC = 0;
+unsigned char tempNum = 0;
 //-------------------------------------------------------------------------------
 //	主程序
 //-------------------------------------------------------------------------------
 void main(void)
 {
-	unsigned char temp = 0;      //变量
 	unsigned char cnt = 0;      //变量
 	unsigned char str[3] = {0};
 	unsigned int iic_data = 0;
@@ -128,14 +129,25 @@ void main(void)
 	unsigned int tmpU16 = 0;
 	float tempF = 0;
 	unsigned char i =0;
-	TIM2_PWM_Init();             //TMR2 PWM 输出初始化
-	TIM1_Init();                 //TMR1初始化 	
+	unsigned char temp = 0;      //变量
+	flash_array[0] = 0x10;
+	flash_array[1] = 0x11;
+
 	
+
+	Delay10KTCYx(10);           //延时
+	TIM2_PWM_Init();             //TMR2 PWM 输出初始化
+	
+	TIM1_Init();                 //TMR1初始化 	
+	setDutyCycle_CCP2(100);
 	UART_Init();                 //串口初始化
 	ADC_Init();//
 #ifndef _DEBUG
 	I2C_Master_Init();	
 #endif	
+	
+	//flash_writebyte(ADDRESS,&flash_array[0]);
+	tempNum = flash_readbyte(ADDRESS,0);
 
 	INTCONbits.PEIE = 1;         //外设中断
 	INTCONbits.GIE  = 1;         //系统中断
@@ -143,6 +155,8 @@ void main(void)
 
 
 	Delay10KTCYx(160);           //延时
+	
+    
 /*
 //感觉没有效果 重新下载后则失效了
 #ifdef _ID_WRITE
@@ -151,13 +165,13 @@ void main(void)
 #else
 	slaveNum = EE_readbyte(1);
 #endif
-*/	
+*/
 	//--------------------------------------------------------------------------
 	Delay10KTCYx(30);            //延时
 
-#ifndef _DEBUG
-	EE_Write_Byte(00,REG_IIC);
-#endif
+//#ifndef _DEBUG
+//	EE_Write_Byte(00,REG_IIC);
+//#endif
 
 	while(1)
 	{
@@ -198,6 +212,7 @@ void main(void)
 			}
 
 		}
+
 #ifndef _DEBUG		
 		if(fixedTimeFlag == 0x35)//定时采样中
 		{
@@ -209,7 +224,7 @@ void main(void)
 		
 			displayTmp = tmpADC*100;
 
-			PID_Control(3000,tmpADC*100);
+			//PID_Control(3000,tmpADC*100);//测试PWM通信结构时需要注解掉
 			//0~65536
 			sendBuf[0] = '0' + (unsigned int)displayTmp/10000%10;
 			sendBuf[1] = '0' + (unsigned int)displayTmp/1000%10;
@@ -226,7 +241,7 @@ void main(void)
 //			registerCtntSnd[1] = (tmpU16 & 0x00ff);
 		}
 #endif
-		
+
 	}
 }
 

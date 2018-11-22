@@ -1,0 +1,11 @@
+#ifndef __EEPROM_H
+#define __EEPROM_H
+
+#include "p18cxxx.h"              //м╥нд╪Ч
+
+
+void setFlashHandleAddr(unsigned int addr,unsigned char bias);
+unsigned char flash_readbyte(unsigned int Addr);
+void flash_writebyte(unsigned int Addr,unsigned char Byte,unsigned char *array);
+
+#endif
