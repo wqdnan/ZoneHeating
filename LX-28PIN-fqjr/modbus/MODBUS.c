@@ -6,7 +6,7 @@
 在AT89S52单片机上测试通过，可以移植到其他51系列单片机
 *******************************/
 #include "type.h"
-#define localAdd  0x03
+#define localAdd  0x01
 unsigned char slaveNum = localAdd;//定义的从机的ID
 
 //字地址 0 - 255 (只取低8位)
@@ -497,22 +497,24 @@ void checkComm0Modbus(void)
 //        localAddr+=16;
 	if (receCount > 4) {
 		switch (receBuf[1]){
-                    case 1: //读取线圈状态(读取点 16位以内)
+			case 1: //读取线圈状态(读取点 16位以内)
 			case 3: //读取保持寄存器(一个或多个)
-                    case 5: //强制单个线圈
-                    case 6: //设置单个寄存器
+			case 5: //强制单个线圈
+			case 6: //设置单个寄存器
 				if (receCount >= 8) {
 					//接收完成一组数据
 					//应该关闭接收中断
 					UART_DISABLE_INTERRUPT();
-                                        INTCONbits.GIE = 0;
-					if (receBuf[0] == localAddr) {
+                    INTCONbits.GIE = 0;
+					if (receBuf[0] == localAddr)
+					{
 						ModbusDelay (10);
 						crcData = crc16(receBuf, 6);
 						//tempData = (receBuf[7] + (receBuf[6] << 8));
 						//if (crcData == tempData) {
-						if ((crcH==receBuf[6])&&(crcL==receBuf[7])) {
-                                                        LATCbits.LATC6=!LATCbits.LATC6;
+						if ((crcH==receBuf[6])&&(crcL==receBuf[7]))
+						{
+                            LATCbits.LATC6=!LATCbits.LATC6;
 							//校验正确
 							if (receBuf[1] == 1) {
 								//读取线圈状态(读取点 16位以内)
@@ -531,22 +533,24 @@ void checkComm0Modbus(void)
 								presetSingleRegister();
 							}
 						}
-                                                else
-                                                {
-                                                   // SEND_595(0xA7);
-                                                    LATCbits.LATC3=0;
-                                                }
+						else
+						{
+						   // SEND_595(0xA7);
+							LATCbits.LATC3=0;
+						}
 					}
 					receCount = 0;
-                                        INTCONbits.GIE = 1;
+                    INTCONbits.GIE = 1;
 					UART_ENABLE_INTERRUPT();
 				}
 				break;
-                    case 15://设置多个线圈
+			case 15://设置多个线圈
 				tempData = receBuf[6];
 				tempData += 9;  //数据个数
-				if (receCount >= tempData) {
-					if (receBuf[0] == localAddr) {
+				if (receCount >= tempData)
+				{
+					if (receBuf[0] == localAddr)
+					{
 						crcData = crc16(receBuf, tempData - 2);
 //						if(crcData==(receBuf[tempData-2]<<8)+receBuf[tempData-1]){
 							//forceMultipleCoils();
@@ -555,16 +559,18 @@ void checkComm0Modbus(void)
 					receCount = 0;
 				}
 				break;
-                    case 16://设置多个寄存器
+			case 16://设置多个寄存器
 				tempData = (receBuf[4] << 8) + receBuf[5];
 				tempData = tempData * 2;    //数据个数
 				tempData += 9;
 
-				if (receCount >= tempData) {
+				if (receCount >= tempData)
+				{
 
 					UART_DISABLE_INTERRUPT();
 					//如果本机或广播，则提取相应数据出来
-					if ((receBuf[0] == localAddr)||(receBuf[0]==0)) {
+					if ((receBuf[0] == localAddr)||(receBuf[0]==0))
+					{
 						crcData = crc16(receBuf, tempData - 2);
 					//	if (crcData == (receBuf[tempData-2] << 8) + receBuf[tempData-1]) 
 						if((crcH==receBuf[tempData-2]) && (crcL==receBuf[tempData-1]))

@@ -47,7 +47,7 @@
 #pragma config SOSCSEL= DIG       //数字 I/O
 
 unsigned char fixedTimeFlag  = 0;
-/*
+
 void Interrupt_High(void);      //中断函数 
 
 //-------------------------------------------------------------------------------
@@ -112,7 +112,7 @@ void Interrupt_High(void)
 	}
 	
 }
-*/
+
 //unsigned char EE_RD_Buffer[16] = {0x00};   //读缓冲
 
 float tmpADC = 0;
@@ -128,6 +128,7 @@ void main(void)
 	unsigned int displayTmp = 0;
 	unsigned int tmpU16 = 0;
 	float tempF = 0;
+	float Ip = 0;
 	unsigned char i =0;
 	unsigned char temp = 0;      //变量
 	flash_array[0] = 0x10;
@@ -178,11 +179,10 @@ void main(void)
 
 		//modbus
 		timerProc();
-		checkComm0Modbus();
+		checkComm0Modbus();//读标志位,提取相关参数存入commData,但并未使用
 		//end modbus
 
-		//ADC-LOAD
-		//tmpADC = GET_ADValue();
+
 		if(fctn16Flag == 0x35)//接收到modbus的写寄存器操作
 		{
 			fctn16Flag = 0;
@@ -224,7 +224,7 @@ void main(void)
 		
 			displayTmp = tmpADC*100;
 
-			//PID_Control(3000,tmpADC*100);//测试PWM通信结构时需要注解掉
+			PID_Control(VOL_SET_TEMPTURE*100,tmpADC*100);//测试PWM通信结构时需要注解掉
 			//0~65536
 			sendBuf[0] = '0' + (unsigned int)displayTmp/10000%10;
 			sendBuf[1] = '0' + (unsigned int)displayTmp/1000%10;
@@ -238,7 +238,14 @@ void main(void)
 			tmpU16 = (tmpADC + 40.0)*100;
 			registerCtntSnd[0] = tmpU16;//(tmpU16 & 0xff00) >> 8;
 			VOL_REAL_TEMPTURE = tmpU16;
-//			registerCtntSnd[1] = (tmpU16 & 0x00ff);
+			//ADC-LOAD
+			tmpU16 = (unsigned int)GET_ADValue();
+			tempF = (tmpU16/4096*5);//ADC电压值
+			//Vout = (2/30)Ip + 2.5
+			//Ip = (Vout - 2.5)*15
+			Ip = (tempF - 2.5)*15;
+			tmpU16 = (Ip + 40.0)*100;
+			registerCtntSnd[1] = tmpU16;//(tmpU16 & 0x00ff);
 		}
 #endif
 
